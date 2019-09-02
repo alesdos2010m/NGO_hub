@@ -1,6 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#ba6b6c</color>
+    <color name="colorPrimaryDark">#ba6b6c</color>
+    <color name="colorAccent">#999999</color>
+
+    <!-- GENERATED Color Palet and imported color.xml-->
+
+    <color name="primaryColor">#6d4c41</color>
+    <color name="primaryLightColor">#9c786c</color>
+    <color name="primaryDarkColor">#40241a</color>
+    <color name="secondaryColor">#ff8a80</color>
+    <color name="secondaryLightColor">#ffbcaf</color>
+    <color name="secondaryDarkColor">#c85a54</color>
+    <color name="primaryTextColor">#e1bee7</color>
+    <color name="secondaryTextColor">#33691e</color>
+    <!--**********************************************-->
+    <!-- GENERATED Color Palet and imported color1.xml-->
+    <!--
+    <color name="primaryColor">#3e356d</color>
+    <color name="primaryLightColor">#6b5f9c</color>
+    <color name="primaryDarkColor">#111041</color>
+    <color name="secondaryColor">#ff9471</color>
+    <color name="secondaryLightColor">#ffc6a0</color>
+    <color name="secondaryDarkColor">#c86545</color>
+    <color name="primaryTextColor">#ffffff</color>
+    <color name="secondaryTextColor">#000000</color>
+    -->
+    <!--**********************************************-->
+    <!-- GENERATED Color Palet and imported color2.xml-->
+    <!--
+    <color name="primaryColor">#6d4c41</color>
+    <color name="primaryLightColor">#9c786c</color>
+    <color name="primaryDarkColor">#40241a</color>
+    <color name="secondaryColor">#ff8a80</color>
+    <color name="secondaryLightColor">#ffbcaf</color>
+    <color name="secondaryDarkColor">#c85a54</color>
+    <color name="primaryTextColor">#e1bee7</color>
+    <color name="secondaryTextColor">#33691e</color>
+    -->
+    <!--**********************************************-->
 </resources>

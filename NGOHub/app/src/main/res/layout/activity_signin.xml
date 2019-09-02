@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SigninActivity"
+    android:background="#F44336"
+
+    >
+
+    <ImageView
+        android:id="@+id/app_logo"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/app_login_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="140sp"
+        />
+
+
+    <EditText
+        android:id="@+id/userid_input"
+        android:layout_width="366dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="390sp"
+        android:background="#ff7961"
+        android:textSize="30sp"
+        android:textColor="#000000"
+        android:hint="UserID"
+        android:textColorHint="#FFFFFF"
+        />
+
+    <EditText
+        android:id="@+id/password_input"
+        android:layout_width="366dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="462sp"
+        android:background="#ff7961"
+        android:textSize="30sp"
+        android:textColor="#000000"
+        android:hint="Password"
+        android:textColorHint="#FFFFFF"
+        />
+</RelativeLayout>

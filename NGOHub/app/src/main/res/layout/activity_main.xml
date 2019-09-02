@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="#ef9a9a
+
+"
+    >
+
+    <TextView
+        android:id="@+id/app_Quote1"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="88dp"
+        android:layout_marginTop="140dp"
+        android:text="MAKE A DIFFERENCE"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold|italic"
+        />
+
+    <TextView
+        android:id="@+id/app_Quote2"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="88dp"
+        android:layout_marginTop="215dp"
+        android:text="BE A CHANGE"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold|italic"
+        />
+
+    <Button
+        android:id="@+id/signup_btn"
+        android:layout_width="200sp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@android:id/accessibilityActionScrollUp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="100dp"
+        android:textAlignment="center"
+
+        android:background="#8d9cf7"
+        android:text="SignUp"
+        android:textSize="20sp"
+    />
+
+    <Button
+        android:id="@+id/signin_btn"
+        android:layout_width="300sp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@android:id/accessibilityActionScrollUp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="40dp"
+        android:background="#8d9cf7"
+        android:text="Already have an Account? Login"
+        android:textSize="15sp"
+    />
+
+</RelativeLayout>
