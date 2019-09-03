@@ -20,7 +20,7 @@
 
 
     <EditText
-        android:id="@+id/userid_input"
+        android:id="@+id/userid_input_signin"
         android:layout_width="366dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -33,7 +33,7 @@
         />
 
     <EditText
-        android:id="@+id/password_input"
+        android:id="@+id/password_input_signin"
         android:layout_width="366dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -44,4 +44,16 @@
         android:hint="Password"
         android:textColorHint="#FFFFFF"
         />
+    <Button
+        android:id="@+id/login_btn"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="545sp"
+        android:background="#ff7961"
+        android:textSize="30sp"
+        android:textColor="#000000"
+        android:text="sign in"
+        />
+
 </RelativeLayout>
