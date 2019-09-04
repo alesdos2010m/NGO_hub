@@ -32,16 +32,19 @@ public class MainActivity extends AppCompatActivity
                 Intent intent = new Intent(MainActivity.this, SignupActivity.class);
                 startActivity(intent);
 
+
             }
             else if(v.getId() == R.id.signin_btn)
             {
                 Intent intent = new Intent(MainActivity.this, SigninActivity.class);
                 startActivity(intent);
+
             }
             else if(v.getId() == R.id.skip_signin)
             {
                 Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                 startActivity(intent);
+                finish();
             }
 
         }
