@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:fillViewport="true"
+    android:scrollbars="none"
+    >
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SigninActivity"
-    android:background="#F44336"
+    android:background="@color/primaryDarkColor"
 
     >
 
@@ -20,41 +27,49 @@
 
 
     <EditText
-        android:layout_below="@+id/app_logo"
         android:id="@+id/userid_input_signin"
-        android:layout_width="366dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:background="#ff7961"
-        android:textSize="30sp"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:layout_below="@+id/app_logo"
+
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+
+        android:layout_marginTop="180dp"
+        android:background="@color/primaryTextColor"
+        android:textSize="25sp"
         android:textColor="#000000"
         android:hint="UserID"
-        android:textColorHint="#FFFFFF"
+        android:textColorHint="#000000"
         />
 
     <EditText
         android:id="@+id/password_input_signin"
-        android:layout_width="366dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="462sp"
-        android:background="#ff7961"
-        android:textSize="30sp"
+        android:layout_below="@+id/userid_input_signin"
+
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+
+        android:layout_marginTop="20dp"
+        android:background="@color/primaryTextColor"
+        android:textSize="25sp"
         android:textColor="#000000"
         android:hint="Password"
-        android:textColorHint="#FFFFFF"
+        android:textColorHint="#000000"
         />
     <Button
         android:id="@+id/app_signin_btn"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/password_input_signin"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="545sp"
-        android:background="#ff7961"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/button_signin"
         android:textSize="30sp"
         android:textColor="#000000"
         android:text="sign in"
         />
-
 </RelativeLayout>
+</ScrollView>
