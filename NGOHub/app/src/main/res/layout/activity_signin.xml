@@ -20,11 +20,12 @@
 
 
     <EditText
+        android:layout_below="@+id/app_logo"
         android:id="@+id/userid_input_signin"
         android:layout_width="366dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="390sp"
+        android:layout_marginTop="10dp"
         android:background="#ff7961"
         android:textSize="30sp"
         android:textColor="#000000"
@@ -45,7 +46,7 @@
         android:textColorHint="#FFFFFF"
         />
     <Button
-        android:id="@+id/login_btn"
+        android:id="@+id/app_signin_btn"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
