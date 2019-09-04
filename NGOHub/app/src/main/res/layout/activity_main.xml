@@ -59,6 +59,7 @@
         android:text="SignUp"
         android:textSize="20sp"
         android:textColor="@color/primaryTextColor"
+        android:onClick="buttonClick"
     />
 
     <Button
@@ -74,6 +75,7 @@
         android:text="Already have an Account? Login"
         android:textSize="18sp"
         android:textColor="@color/primaryTextColor"
+        android:onClick="buttonClick"
     />
 
     <TextView
@@ -89,6 +91,7 @@
         android:text="Skip"
         android:textSize="25dp"
         android:textColor="#FFFFFF"
+        android:onClick="buttonClick"
 
         />
 </RelativeLayout>
