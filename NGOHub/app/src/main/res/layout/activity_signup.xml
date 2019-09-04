@@ -124,6 +124,7 @@
         android:textColor="#000000"
         android:hint="Create Password"
         android:textColorHint="@color/primaryLightTexthintColor"
+        android:inputType="textPassword"
         />
     <EditText
         android:id="@+id/password2_input_signup"
@@ -142,6 +143,7 @@
         android:textColor="#000000"
         android:hint="Retype Password"
         android:textColorHint="@color/primaryLightTexthintColor"
+        android:inputType="textPassword"
         />
 
     <!--*************************************-->
