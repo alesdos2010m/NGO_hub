@@ -42,7 +42,7 @@
         android:textSize="25sp"
         android:textColor="#000000"
         android:hint="UserID"
-        android:textColorHint="#000000"
+        android:textColorHint="@color/primaryLightTexthintColor"
         />
 
     <EditText
@@ -60,7 +60,7 @@
         android:textSize="25sp"
         android:textColor="#000000"
         android:hint="Password"
-        android:textColorHint="#000000"
+        android:textColorHint="@color/primaryLightTexthintColor"
         android:inputType="textPassword"
         />
     <Button

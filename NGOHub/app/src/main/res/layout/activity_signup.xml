@@ -31,7 +31,7 @@
         android:textSize="25sp"
         android:textColor="#000000"
         android:hint="First Name"
-        android:textColorHint="#000000"
+        android:textColorHint="@color/primaryLightTexthintColor"
         />
     <EditText
         android:id="@+id/middle_name_input_signup"
@@ -48,7 +48,7 @@
         android:textSize="25sp"
         android:textColor="#000000"
         android:hint="Middle Name"
-        android:textColorHint="#000000"
+        android:textColorHint="@color/primaryLightTexthintColor"
         />
 
     <EditText
@@ -67,7 +67,7 @@
         android:textSize="25sp"
         android:textColor="#000000"
         android:hint="Last Name"
-        android:textColorHint="#000000"
+        android:textColorHint="@color/primaryLightTexthintColor"
         />
 
     <EditText
@@ -86,7 +86,7 @@
         android:textSize="25sp"
         android:textColor="#000000"
         android:hint="Moblie Number"
-        android:textColorHint="#000000"
+        android:textColorHint="@color/primaryLightTexthintColor"
         />
 
     <EditText
@@ -105,7 +105,7 @@
         android:textSize="25sp"
         android:textColor="#000000"
         android:hint="xyz@example.com"
-        android:textColorHint="#000000"
+        android:textColorHint="@color/primaryLightTexthintColor"
         />
     <EditText
         android:id="@+id/password1_input_signup"
@@ -123,7 +123,7 @@
         android:textSize="25sp"
         android:textColor="#000000"
         android:hint="Create Password"
-        android:textColorHint="#000000"
+        android:textColorHint="@color/primaryLightTexthintColor"
         />
     <EditText
         android:id="@+id/password2_input_signup"
@@ -141,7 +141,7 @@
         android:textSize="25sp"
         android:textColor="#000000"
         android:hint="Retype Password"
-        android:textColorHint="#000000"
+        android:textColorHint="@color/primaryLightTexthintColor"
         />
 
     <!--*************************************-->
