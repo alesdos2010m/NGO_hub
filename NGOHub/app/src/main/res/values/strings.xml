@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">NGOHub</string>
+    <string name="quote_1_make_a_difference">MAKE A DIFFERENCE</string>
+    <string name="quote_2_be_a_change">BE A CHANGE</string>
+    <string name="SIGNUP">SignUp</string>
+    <string name="Hint_for_user_id">User ID</string>
+    <string name="Hint_for_password">Password</string>
 </resources>

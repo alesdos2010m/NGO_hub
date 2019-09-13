@@ -8,16 +8,14 @@
     android:scrollbars="none"
     >
 
-
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".MainActivity"
-    android:background="@color/primaryDarkColor"
+    android:background="@drawable/gradient1"
     >
-
     <TextView
         android:id="@+id/app_Quote1"
         android:layout_width="220dp"
@@ -25,7 +23,7 @@
         android:layout_marginTop="140dp"
         android:layout_centerHorizontal="true"
 
-        android:text="MAKE A DIFFERENCE"
+        android:text="@string/quote_1_make_a_difference"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
@@ -39,7 +37,7 @@
         android:layout_below="@id/app_Quote1"
         android:layout_marginTop="30dp"
         android:layout_centerHorizontal="true"
-        android:text="BE A CHANGE"
+        android:text="@string/quote_2_be_a_change"
         android:textAlignment="center"
         android:textColor="@color/primaryTextColor"
         android:textSize="30sp"
@@ -55,28 +53,27 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/button_signin"
-        android:text="SignUp"
+        android:background="@drawable/button_main"
+        android:text="@string/SIGNUP"
         android:textSize="20sp"
         android:textColor="@color/primaryTextColor"
         android:onClick="buttonClick"
     />
-
     <Button
         android:id="@+id/signin_btn"
         android:layout_below="@id/signup_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="20sp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/button_signin"
-        android:text="Already have an Account? Login"
-        android:textSize="18sp"
+        android:background="@drawable/button_main"
+        android:text="Already hev an Account? Login."
+        android:textSize="20sp"
         android:textColor="@color/primaryTextColor"
         android:onClick="buttonClick"
-    />
+        />
 
     <TextView
         android:id="@+id/skip_signin"
@@ -94,5 +91,6 @@
         android:onClick="buttonClick"
 
         />
+
 </RelativeLayout>
 </ScrollView>

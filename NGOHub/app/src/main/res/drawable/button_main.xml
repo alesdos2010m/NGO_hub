@@ -30,9 +30,9 @@
             <corners android:radius="40dip"></corners>
             <stroke
                 android:width="1dip"
-                android:color="@color/button_signin">
+                android:color="@color/colorAccent">
             </stroke>
-            <solid android:color="@color/button_signin"></solid>
+            <solid android:color="@color/colorAccent"></solid>
         </shape>
     </item>
 </selector>
