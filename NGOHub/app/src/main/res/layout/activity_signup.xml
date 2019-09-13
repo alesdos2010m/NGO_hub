@@ -9,9 +9,7 @@
     android:fillViewport="true"
     android:scrollbars="none"
     >
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/primaryTextColor"
@@ -90,32 +88,35 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <RadioGroup
+        android:id="@+id/gender_input_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="20sp"
         >
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Gender"
-            android:textSize="22sp"
             android:layout_marginLeft="20sp"
-            />
+            android:text="Gender"
+            android:textSize="22sp" />
+
         <RadioButton
+            android:id="@+id/male_input_rbutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
             android:text="Male"
-            android:textSize="20sp"
-            android:layout_marginLeft="20dp"
-            />
+            android:textSize="20sp" />
+
         <RadioButton
+            android:id="@+id/female_input_rbutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Female"
-            android:textSize="20sp"
             android:layout_marginLeft="20dp"
-            />
+            android:text="Female"
+            android:textSize="20sp" />
     </RadioGroup>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -150,7 +151,7 @@
         android:layout_marginTop="15sp"
         >
         <EditText
-            android:id="@+id/email_id_no_input_signup"
+            android:id="@+id/email_id_input_signup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="xyz@example.com"
@@ -228,6 +229,7 @@
         android:textSize="27sp"
         android:textColor="#000000"
         android:text="sign up"
+        android:onClick="SignUp"
         />
     <LinearLayout
         android:layout_width="match_parent"
@@ -249,7 +251,7 @@
             android:textSize="20sp"
             android:textColor="@color/button_signin"
             android:textStyle="italic"
-            android:onClick="buttonClick"
+            android:onClick="Login"
             />
 
 

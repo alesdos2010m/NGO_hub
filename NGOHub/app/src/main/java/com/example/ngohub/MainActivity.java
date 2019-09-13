@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity
             {
                 Intent intent = new Intent(MainActivity.this, SignupActivity.class);
                 startActivity(intent);
+                finish();
 
 
             }
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity
             {
                 Intent intent = new Intent(MainActivity.this, SigninActivity.class);
                 startActivity(intent);
+                finish();
 
             }
             else if(v.getId() == R.id.skip_signin)
@@ -48,6 +50,7 @@ public class MainActivity extends AppCompatActivity
             }
 
         }
+
 
 
 
