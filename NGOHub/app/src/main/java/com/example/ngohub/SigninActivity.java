@@ -30,11 +30,13 @@ public class SigninActivity extends AppCompatActivity {
     EditText edit_password;
     Button btn_signin;
     TextView text_register;
+    SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signin);
+        sessionManager=new SessionManager(this);
         edit_email_id = (EditText) findViewById(R.id.userid_input_signin);
         edit_password = (EditText) findViewById(R.id.password_input_signin);
         btn_signin = (Button) findViewById(R.id.app_signin_btn);
@@ -120,14 +122,8 @@ public class SigninActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
 
-            if(result.equals("Login Successful"))
-            {
-                Toast.makeText(getApplicationContext(),result, Toast.LENGTH_LONG).show();
-                Intent intent=new Intent(SigninActivity.this,HomeActivity.class);
-                startActivity(intent);
-                finish();
-            }
-            else if(result.equals("Sorry,the Email ID does not exist,Please Register Yourself."))
+
+            if(result.equals("Sorry,the Email ID does not exist,Please Register Yourself."))
             {
                 Toast.makeText(getApplicationContext(),result, Toast.LENGTH_LONG).show();
                 Intent intent=new Intent(SigninActivity.this,MainActivity.class);
@@ -138,6 +134,14 @@ public class SigninActivity extends AppCompatActivity {
             {
                 Toast.makeText(getApplicationContext(),result, Toast.LENGTH_LONG).show();
                 Intent intent=new Intent(SigninActivity.this,SigninActivity.class);
+                startActivity(intent);
+                finish();
+            }
+          else //Login Successful
+            {
+                Toast.makeText(getApplicationContext(),"Login Successful!", Toast.LENGTH_LONG).show();
+                sessionManager.createSession(result);
+                Intent intent=new Intent(SigninActivity.this,HomeActivity.class);
                 startActivity(intent);
                 finish();
             }

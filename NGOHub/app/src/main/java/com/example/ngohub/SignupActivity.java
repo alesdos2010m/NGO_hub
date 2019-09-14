@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -33,6 +34,7 @@ public class SignupActivity extends AppCompatActivity {
     RadioButton selectedradiobutton;
     Button btn_signup;
     TextView text_login;
+    CheckBox check_valid_info,check_accept_TnC;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,8 @@ public class SignupActivity extends AppCompatActivity {
         edit_email_id=(EditText)findViewById(R.id.email_id_input_signup);
         edit_password1=(EditText)findViewById(R.id.password1_input_signup);
         edit_password2=(EditText)findViewById(R.id.password2_input_signup);
+        check_valid_info=(CheckBox)findViewById(R.id.checkbox_input_valid_info_signup);
+        check_accept_TnC=(CheckBox)findViewById(R.id.checkbox_input_accept_TnC_signup);
         radiogrp_gender = (RadioGroup) findViewById(R.id.gender_input_button);
         btn_signup=(Button)findViewById(R.id.app_signup_btn);
         btn_signup.setOnClickListener(new View.OnClickListener() {
@@ -64,24 +68,35 @@ public class SignupActivity extends AppCompatActivity {
                 String password2 = edit_password2.getText().toString();
                 String type = "register";
 
-                if(TextUtils.isEmpty(first_name) || TextUtils.isEmpty(middle_name) || TextUtils.isEmpty(last_name)||TextUtils.isEmpty(gender)||TextUtils.isEmpty(contact_no)||TextUtils.isEmpty(email_id)||TextUtils.isEmpty(password1)||TextUtils.isEmpty(password2))
-                {
-                    Toast.makeText(getApplicationContext(), "Please fill all the entries", Toast.LENGTH_LONG).show();
-                }
-                else if(TextUtils.isEmpty(first_name) && TextUtils.isEmpty(middle_name) && TextUtils.isEmpty(last_name) && TextUtils.isEmpty(gender) && TextUtils.isEmpty(contact_no) && TextUtils.isEmpty(email_id) && TextUtils.isEmpty(password1) && TextUtils.isEmpty(password2))
-                {
-                    Toast.makeText(getApplicationContext(), "Please fill all the entries", Toast.LENGTH_LONG).show();
-                }
+                if(check_valid_info.isChecked() && check_accept_TnC.isChecked()) {
 
-                else if(!(password1.equals(password2)))
-                {
-                    Toast.makeText(getApplicationContext(), "Passwords do not match!", Toast.LENGTH_LONG).show();
+                    if (TextUtils.isEmpty(first_name) || TextUtils.isEmpty(middle_name) || TextUtils.isEmpty(last_name) || TextUtils.isEmpty(gender) || TextUtils.isEmpty(contact_no) || TextUtils.isEmpty(email_id) || TextUtils.isEmpty(password1) || TextUtils.isEmpty(password2)) {
+                        Toast.makeText(getApplicationContext(), "Please fill all the entries", Toast.LENGTH_LONG).show();
+                    }
+                    else if (TextUtils.isEmpty(first_name) && TextUtils.isEmpty(middle_name) && TextUtils.isEmpty(last_name) && TextUtils.isEmpty(gender) && TextUtils.isEmpty(contact_no) && TextUtils.isEmpty(email_id) && TextUtils.isEmpty(password1) && TextUtils.isEmpty(password2)) {
+                        Toast.makeText(getApplicationContext(), "Please fill all the entries", Toast.LENGTH_LONG).show();
+                    }
+                    else if (!(password1.equals(password2))) {
+                        Toast.makeText(getApplicationContext(), "Passwords do not match!", Toast.LENGTH_LONG).show();
+                    }
+                    else {
+                        SignupActivity.RegisterBackgroundWorker registerbackgroundWorker = new SignupActivity.RegisterBackgroundWorker(SignupActivity.this);
+                        registerbackgroundWorker.execute(type, first_name, middle_name, last_name, gender, contact_no, email_id, password1);
+                        finish();
+                    }
                 }
-                else {
-                           SignupActivity.RegisterBackgroundWorker registerbackgroundWorker = new SignupActivity.RegisterBackgroundWorker(SignupActivity.this);
-                              registerbackgroundWorker.execute(type, first_name, middle_name, last_name, gender, contact_no, email_id, password1);
-                              finish();
-                     }
+                else if(!check_accept_TnC.isChecked())
+                {
+                    Toast.makeText(getApplicationContext(), "Please Accept the Terms and Conditions to continue", Toast.LENGTH_LONG).show();
+                }
+                else if(!check_valid_info.isChecked())
+                {
+                    Toast.makeText(getApplicationContext(), "Please Accept that the information provided by you is valid!", Toast.LENGTH_LONG).show();
+                }
+                else if(check_valid_info.isChecked() && check_accept_TnC.isChecked())
+                {
+                    Toast.makeText(getApplicationContext(), "Please Accept the Terms and Conditions and Verify your credentials to continue", Toast.LENGTH_LONG).show();
+                }
             }
         });
 
