@@ -13,7 +13,6 @@ public class MainActivity extends AppCompatActivity
   Button login_btn,signup_btn;
   TextView skip_signin;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
