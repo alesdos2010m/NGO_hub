@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -63,18 +64,27 @@ public class SignupActivity extends AppCompatActivity {
                 String password2 = edit_password2.getText().toString();
                 String type = "register";
 
-                     if(password1.equals(password2))
-                      {
+                if(TextUtils.isEmpty(first_name) || TextUtils.isEmpty(middle_name) || TextUtils.isEmpty(last_name)||TextUtils.isEmpty(gender)||TextUtils.isEmpty(contact_no)||TextUtils.isEmpty(email_id)||TextUtils.isEmpty(password1)||TextUtils.isEmpty(password2))
+                {
+                    Toast.makeText(getApplicationContext(), "Please fill all the entries", Toast.LENGTH_LONG).show();
+                }
+                else if(TextUtils.isEmpty(first_name) && TextUtils.isEmpty(middle_name) && TextUtils.isEmpty(last_name) && TextUtils.isEmpty(gender) && TextUtils.isEmpty(contact_no) && TextUtils.isEmpty(email_id) && TextUtils.isEmpty(password1) && TextUtils.isEmpty(password2))
+                {
+                    Toast.makeText(getApplicationContext(), "Please fill all the entries", Toast.LENGTH_LONG).show();
+                }
+
+                else if(!(password1.equals(password2)))
+                {
+                    Toast.makeText(getApplicationContext(), "Passwords do not match!", Toast.LENGTH_LONG).show();
+                }
+                else {
                            SignupActivity.RegisterBackgroundWorker registerbackgroundWorker = new SignupActivity.RegisterBackgroundWorker(SignupActivity.this);
                               registerbackgroundWorker.execute(type, first_name, middle_name, last_name, gender, contact_no, email_id, password1);
                               finish();
 
                      }
 
-                     else
-                     {
-                         Toast.makeText(getApplicationContext(),"Passwords do not match,Please try again!", Toast.LENGTH_LONG).show();
-                     }
+
             }
         });
 

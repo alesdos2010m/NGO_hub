@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -54,8 +55,22 @@ public class SigninActivity extends AppCompatActivity {
         String email_id =edit_email_id.getText().toString();
         String password =edit_password.getText().toString();
         String type = "signin";
-        LoginBackgroundWorker loginbackgroundWorker = new LoginBackgroundWorker(this);
-        loginbackgroundWorker.execute(type, email_id, password);
+        if(TextUtils.isEmpty(email_id)&&TextUtils.isEmpty(password))
+        {
+            Toast.makeText(getApplicationContext(), "Email id and Password cannot be blank", Toast.LENGTH_LONG).show();
+        }
+        else if(TextUtils.isEmpty(email_id))
+        {
+            Toast.makeText(getApplicationContext(), "Email_id cannot be blank", Toast.LENGTH_LONG).show();
+        }
+        else if(TextUtils.isEmpty(password))
+        {
+            Toast.makeText(getApplicationContext(), "Password cannot be blank", Toast.LENGTH_LONG).show();
+        }
+        else {
+            LoginBackgroundWorker loginbackgroundWorker = new LoginBackgroundWorker(this);
+            loginbackgroundWorker.execute(type, email_id, password);
+        }
 
 
 
@@ -145,29 +160,6 @@ public class SigninActivity extends AppCompatActivity {
                 Intent intent=new Intent(SigninActivity.this,SigninActivity.class);
                 startActivity(intent);
                 finish();
-            }
-            else if(result.equals("Password should be filled"))
-            {
-                Toast.makeText(getApplicationContext(),result, Toast.LENGTH_LONG).show();
-                Intent intent=new Intent(SigninActivity.this,SigninActivity.class);
-                startActivity(intent);
-                finish();
-            }
-            else if(result.equals("Email id should be filled"))
-            {
-                Toast.makeText(getApplicationContext(),result, Toast.LENGTH_LONG).show();
-                Intent intent=new Intent(SigninActivity.this,SigninActivity.class);
-                startActivity(intent);
-                finish();
-            }
-
-            else
-            {
-                Toast.makeText(getApplicationContext(),result, Toast.LENGTH_LONG).show();
-                Intent intent=new Intent(SigninActivity.this,MainActivity.class);
-                startActivity(intent);
-                finish();
-
             }
         }
 
