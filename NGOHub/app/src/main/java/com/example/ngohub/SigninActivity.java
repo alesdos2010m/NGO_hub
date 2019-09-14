@@ -4,11 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,8 +31,13 @@ public class SigninActivity extends AppCompatActivity {
     EditText edit_email_id;
     EditText edit_password;
     Button btn_signin;
+    CheckBox remember_me;
     TextView text_register;
     SessionManager sessionManager;
+    SharedPreferences loginPreferences;
+   SharedPreferences.Editor loginPrefsEditor;
+   Boolean saveLogin;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +48,24 @@ public class SigninActivity extends AppCompatActivity {
         edit_password = (EditText) findViewById(R.id.password_input_signin);
         btn_signin = (Button) findViewById(R.id.app_signin_btn);
         text_register=(TextView)findViewById(R.id.Register);
+        remember_me=(CheckBox)findViewById(R.id.checkbox_input_rememberMe_signin);
+        loginPreferences = getSharedPreferences("loginPrefs", MODE_PRIVATE);
+        loginPrefsEditor = loginPreferences.edit();
+
+        saveLogin = loginPreferences.getBoolean("saveLogin", false);
+        if (saveLogin == true) {
+            edit_email_id.setText(loginPreferences.getString("email_id", ""));
+            edit_password.setText(loginPreferences.getString("password", ""));
+            remember_me.setChecked(true);
+        }
+
+
+
+
+
     }
-     //Not Registered? Register.
+
+    //Not Registered? Register.
     public void Register(View view)
     {
         Intent intent = new Intent(SigninActivity.this, SignupActivity.class);
@@ -54,6 +77,15 @@ public class SigninActivity extends AppCompatActivity {
         String email_id =edit_email_id.getText().toString();
         String password =edit_password.getText().toString();
         String type = "signin";
+
+        if (remember_me.isChecked()) {
+            loginPrefsEditor.putBoolean("saveLogin", true);
+            loginPrefsEditor.putString("email_id", email_id);
+            loginPrefsEditor.putString("password", password);
+            loginPrefsEditor.apply();
+        }
+
+
         if(TextUtils.isEmpty(email_id)&&TextUtils.isEmpty(password))
         {
             Toast.makeText(getApplicationContext(), "Email id and Password cannot be blank", Toast.LENGTH_LONG).show();
@@ -66,7 +98,8 @@ public class SigninActivity extends AppCompatActivity {
         {
             Toast.makeText(getApplicationContext(), "Password cannot be blank", Toast.LENGTH_LONG).show();
         }
-        else {
+        else
+            {
             LoginBackgroundWorker loginbackgroundWorker = new LoginBackgroundWorker(this);
             loginbackgroundWorker.execute(type, email_id, password);
         }

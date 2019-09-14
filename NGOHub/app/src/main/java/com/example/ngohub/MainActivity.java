@@ -12,15 +12,27 @@ public class MainActivity extends AppCompatActivity
 {
   Button login_btn,signup_btn;
   TextView skip_signin;
+  SessionManager sessionManager;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        sessionManager=new SessionManager(this);
         login_btn =  findViewById(R.id.signin_btn);
         signup_btn = findViewById(R.id.signup_btn);
         skip_signin=findViewById(R.id.skip_signin);
+        if(sessionManager.isLoggin()==true)
+        {
+            Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+            startActivity(intent);
+            finish();
+            sessionManager.checkLogin();
+        }
     }
         public void buttonClick(View v)
         {
@@ -43,4 +55,7 @@ public class MainActivity extends AppCompatActivity
                 finish();
             }
         }
+
+
+
 }

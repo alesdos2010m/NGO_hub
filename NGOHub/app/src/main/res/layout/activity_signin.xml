@@ -71,16 +71,17 @@
             android:textColor="#000000"
             />
     </com.google.android.material.textfield.TextInputLayout>
+
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20sp">
+
         <CheckBox android:id="@+id/checkbox_input_rememberMe_signin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/checkbox_remember_me"
-            android:onClick="onCheckboxClicked"
             android:layout_marginLeft="20sp"
             android:layout_marginRight="20sp"
             />
