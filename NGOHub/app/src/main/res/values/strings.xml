@@ -5,4 +5,7 @@
     <string name="SIGNUP">SignUp</string>
     <string name="Hint_for_user_id">User ID</string>
     <string name="Hint_for_password">Password</string>
+    <string name="checkbox_remember_me">Remember me</string>
+    <string name="checkbox_valid_info">I confirm that the information given in this form is true, complete and accurate.</string>
+    <string name="checkbox_accept_TnC">I accept the Terms of Service</string>
 </resources>

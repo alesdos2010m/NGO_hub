@@ -212,6 +212,22 @@
             android:textColor="#000000"
             />
     </com.google.android.material.textfield.TextInputLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp">
+        <CheckBox android:id="@+id/checkbox_input_valid_info_signup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/checkbox_valid_info"
+            android:onClick="onCheckboxClicked"/>
+        <CheckBox android:id="@+id/checkbox_input_accept_TnC_signup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/checkbox_accept_TnC"
+            android:onClick="onCheckboxClicked"/>
+    </LinearLayout>
 
     <!--*************************************-->
 
@@ -249,7 +265,7 @@
             android:layout_height="wrap_content"
             android:text="Login."
             android:textSize="20sp"
-            android:textColor="@color/button_signin"
+            android:textColor="@color/colorOrange"
             android:textStyle="italic"
             android:onClick="Login"
             />

@@ -81,10 +81,7 @@ public class SignupActivity extends AppCompatActivity {
                            SignupActivity.RegisterBackgroundWorker registerbackgroundWorker = new SignupActivity.RegisterBackgroundWorker(SignupActivity.this);
                               registerbackgroundWorker.execute(type, first_name, middle_name, last_name, gender, contact_no, email_id, password1);
                               finish();
-
                      }
-
-
             }
         });
 
@@ -160,11 +157,8 @@ public class SignupActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }
-
             return null;
         }
-
-
 
         @Override
         protected void onPostExecute(String result) {
@@ -190,7 +184,6 @@ public class SignupActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-
         }
 
         @Override
@@ -204,7 +197,4 @@ public class SignupActivity extends AppCompatActivity {
         }
 
     }
-
-
-
 }

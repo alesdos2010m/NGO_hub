@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-
 public class MainActivity extends AppCompatActivity
 {
   Button login_btn,signup_btn;
@@ -26,21 +25,17 @@ public class MainActivity extends AppCompatActivity
     }
         public void buttonClick(View v)
         {
-
             if(v.getId() == R.id.signup_btn)
             {
                 Intent intent = new Intent(MainActivity.this, SignupActivity.class);
                 startActivity(intent);
                 finish();
-
-
             }
             else if(v.getId() == R.id.signin_btn)
             {
                 Intent intent = new Intent(MainActivity.this, SigninActivity.class);
                 startActivity(intent);
                 finish();
-
             }
             else if(v.getId() == R.id.skip_signin)
             {
@@ -48,10 +43,5 @@ public class MainActivity extends AppCompatActivity
                 startActivity(intent);
                 finish();
             }
-
         }
-
-
-
-
 }

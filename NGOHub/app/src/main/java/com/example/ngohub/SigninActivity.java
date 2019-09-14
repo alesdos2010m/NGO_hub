@@ -39,8 +39,6 @@ public class SigninActivity extends AppCompatActivity {
         edit_password = (EditText) findViewById(R.id.password_input_signin);
         btn_signin = (Button) findViewById(R.id.app_signin_btn);
         text_register=(TextView)findViewById(R.id.Register);
-
-
     }
      //Not Registered? Register.
     public void Register(View view)
@@ -51,7 +49,6 @@ public class SigninActivity extends AppCompatActivity {
     }
     //Validates the Login credentials from the database upon clicking the Signin button
     public void Login(View view) {
-
         String email_id =edit_email_id.getText().toString();
         String password =edit_password.getText().toString();
         String type = "signin";
@@ -71,20 +68,13 @@ public class SigninActivity extends AppCompatActivity {
             LoginBackgroundWorker loginbackgroundWorker = new LoginBackgroundWorker(this);
             loginbackgroundWorker.execute(type, email_id, password);
         }
-
-
-
     }
     public class LoginBackgroundWorker extends AsyncTask<String,Void,String> {
-
         Context context;
-
-
 
         public LoginBackgroundWorker(Context contxt) {
             context = contxt;
         }
-
         @Override
         protected String doInBackground(String... params) {
             String type=params[0];
@@ -125,15 +115,10 @@ public class SigninActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }
-
             return null;
         }
-
-
-
         @Override
         protected void onPostExecute(String result) {
-
 
             if(result.equals("Login Successful"))
             {
@@ -141,11 +126,7 @@ public class SigninActivity extends AppCompatActivity {
                 Intent intent=new Intent(SigninActivity.this,HomeActivity.class);
                 startActivity(intent);
                 finish();
-
-
-
             }
-
             else if(result.equals("Sorry,the Email ID does not exist,Please Register Yourself."))
             {
                 Toast.makeText(getApplicationContext(),result, Toast.LENGTH_LONG).show();
@@ -153,7 +134,6 @@ public class SigninActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-
             else if(result.equals("Invalid Email id or password,Please try again"))
             {
                 Toast.makeText(getApplicationContext(),result, Toast.LENGTH_LONG).show();
@@ -162,17 +142,13 @@ public class SigninActivity extends AppCompatActivity {
                 finish();
             }
         }
-
         @Override
         protected void onPreExecute() {
 
         }
-
         @Override
         protected void onProgressUpdate(Void... values) {
             super.onProgressUpdate(values);
         }
-
     }
-
 }
