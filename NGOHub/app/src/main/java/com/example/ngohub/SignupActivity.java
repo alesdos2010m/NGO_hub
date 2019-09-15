@@ -56,6 +56,7 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // get the selected RadioButton of the group
+
                 selectedradiobutton  = (RadioButton)findViewById(radiogrp_gender.getCheckedRadioButtonId());
 
                 String first_name = edit_first_name.getText().toString();
@@ -73,7 +74,7 @@ public class SignupActivity extends AppCompatActivity {
                     if (TextUtils.isEmpty(first_name) || TextUtils.isEmpty(middle_name) || TextUtils.isEmpty(last_name) || TextUtils.isEmpty(gender) || TextUtils.isEmpty(contact_no) || TextUtils.isEmpty(email_id) || TextUtils.isEmpty(password1) || TextUtils.isEmpty(password2)) {
                         Toast.makeText(getApplicationContext(), "Please fill all the entries", Toast.LENGTH_LONG).show();
                     }
-                    else if (TextUtils.isEmpty(first_name) && TextUtils.isEmpty(middle_name) && TextUtils.isEmpty(last_name) && TextUtils.isEmpty(gender) && TextUtils.isEmpty(contact_no) && TextUtils.isEmpty(email_id) && TextUtils.isEmpty(password1) && TextUtils.isEmpty(password2)) {
+                    else if (TextUtils.isEmpty(first_name) && TextUtils.isEmpty(middle_name) && TextUtils.isEmpty(last_name)  && TextUtils.isEmpty(contact_no) && TextUtils.isEmpty(email_id) && TextUtils.isEmpty(password1) && TextUtils.isEmpty(password2)) {
                         Toast.makeText(getApplicationContext(), "Please fill all the entries", Toast.LENGTH_LONG).show();
                     }
                     else if (!(password1.equals(password2))) {
