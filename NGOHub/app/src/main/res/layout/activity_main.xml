@@ -45,7 +45,7 @@
         />
 
     <Button
-        android:id="@+id/signup_btn"
+        android:id="@+id/iam_ngo"
         android:layout_below="@id/app_Quote2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -54,22 +54,22 @@
         android:layout_marginRight="20dp"
         android:layout_centerHorizontal="true"
         android:background="@drawable/button_main"
-        android:text="@string/SIGNUP"
+        android:text="I'm a VOLUNTEER"
         android:textSize="20sp"
         android:textColor="@color/primaryTextColor"
         android:onClick="buttonClick"
     />
     <Button
-        android:id="@+id/signin_btn"
-        android:layout_below="@id/signup_btn"
+        android:id="@+id/iam_volunteer"
+        android:layout_below="@id/iam_ngo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20sp"
+        android:layout_marginTop="30sp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_centerHorizontal="true"
         android:background="@drawable/button_main"
-        android:text="Already hev an Account? Login."
+        android:text="I'm a VO/NGO"
         android:textSize="20sp"
         android:textColor="@color/primaryTextColor"
         android:onClick="buttonClick"
@@ -89,8 +89,6 @@
         android:textSize="25dp"
         android:textColor="#FFFFFF"
         android:onClick="buttonClick"
-
         />
-
 </RelativeLayout>
 </ScrollView>

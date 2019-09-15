@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:fillViewport="true"
+    android:scrollbars="none"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primaryTextColor"
+
+        android:orientation="vertical"
+        android:padding="30dp"
+        tools:context=".SignupActivity"
+        >
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:textColorHint="@color/primaryLightTexthintColor"
+            >
+            <EditText
+                android:id="@+id/name_input_ngo_signup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Name of VO/NGO"
+                android:inputType="text"
+                android:textSize="22sp"
+                android:ems="10"
+
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textColor="#000000"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:textColorHint="@color/primaryLightTexthintColor"
+            android:layout_marginTop="15sp"
+            >
+            <EditText
+                android:id="@+id/unique_id_input_ngo_signup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Unique ID"
+                android:inputType="text"
+                android:textSize="22sp"
+                android:ems="10"
+
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textColor="#000000"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:focusable="true"-->
+<!--            android:focusableInTouchMode="true"-->
+<!--            android:textColorHint="@color/primaryLightTexthintColor"-->
+<!--            android:layout_marginTop="15sp"-->
+<!--            >-->
+<!--            <EditText-->
+<!--                android:id="@+id/last_name_input_signup"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:hint="Last Name"-->
+<!--                android:inputType="text"-->
+<!--                android:textSize="22sp"-->
+<!--                android:ems="10"-->
+
+<!--                android:layout_marginLeft="20dp"-->
+<!--                android:layout_marginRight="20dp"-->
+<!--                android:textColor="#000000"-->
+<!--                />-->
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
+
+
+
+
+
+
+
+
+
+
+
+<!--        <RadioGroup-->
+<!--            android:id="@+id/gender_input_button"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:layout_marginTop="20sp"-->
+<!--            >-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="20sp"-->
+<!--                android:text="Gender"-->
+<!--                android:textSize="22sp" />-->
+
+<!--            <RadioButton-->
+<!--                android:id="@+id/male_input_rbutton"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="20dp"-->
+<!--                android:checked="true"-->
+<!--                android:text="Male"-->
+<!--                android:textSize="20sp" />-->
+
+<!--            <RadioButton-->
+<!--                android:id="@+id/female_input_rbutton"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="20dp"-->
+<!--                android:text="Female"-->
+<!--                android:textSize="20sp" />-->
+<!--        </RadioGroup>-->
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:textColorHint="@color/primaryLightTexthintColor"
+            android:layout_marginTop="15sp"
+            >
+            <EditText
+                android:id="@+id/contact_no_input_ngo_signup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Contact No."
+                android:inputType="number"
+                android:textSize="22sp"
+                android:ems="10"
+
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textColor="#000000"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:textColorHint="@color/primaryLightTexthintColor"
+            android:layout_marginTop="15sp"
+            >
+            <EditText
+                android:id="@+id/email_id_input_ngo_signup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="xyz@example.com"
+                android:inputType="textWebEmailAddress"
+                android:textSize="22sp"
+                android:ems="10"
+
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textColor="#000000"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:textColorHint="@color/primaryLightTexthintColor"
+            android:layout_marginTop="15sp"
+            app:passwordToggleEnabled="true"
+            >
+            <EditText
+                android:id="@+id/password1_input_ngo_signup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Create Password"
+                android:inputType="textPassword"
+                android:textSize="22sp"
+                android:ems="10"
+
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textColor="#000000"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:textColorHint="@color/primaryLightTexthintColor"
+            android:layout_marginTop="15sp"
+            app:passwordToggleEnabled="true"
+            >
+            <EditText
+                android:id="@+id/password2_input_ngo_signup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Retype Password"
+                android:inputType="textPassword"
+                android:textSize="22sp"
+                android:ems="10"
+
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textColor="#000000"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <!--*************************************-->
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20sp">
+            <CheckBox android:id="@+id/checkbox_input_valid_info_ngo_signup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/checkbox_valid_info"
+                />
+            <CheckBox android:id="@+id/checkbox_input_accept_TnC_ngo_signup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/checkbox_accept_TnC"
+                />
+        </LinearLayout>
+
+        <!--*************************************-->
+
+        <Button
+            android:id="@+id/app_signup_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+
+            android:layout_marginTop="40sp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/button_signin"
+            android:textSize="27sp"
+            android:textColor="#000000"
+            android:text="sign up"
+            android:onClick="SignUp"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10sp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Already Have an Account? "
+                android:textSize="20sp"
+                />
+            <TextView
+                android:id="@+id/Login_ngo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Login."
+                android:textSize="20sp"
+                android:textColor="@color/colorOrange"
+                android:textStyle="italic"
+                android:onClick="Login"
+                />
+
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

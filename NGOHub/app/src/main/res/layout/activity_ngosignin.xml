@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:fillViewport="true"
+    android:scrollbars="none"
+    >
+    <LinearLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primaryTextColor"
+        android:orientation="vertical"
+        android:padding="30dp"
+        tools:context=".SigninActivity"
+        >
+
+        <ImageView
+            android:id="@+id/app_logo_ngo_signin"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:padding="30sp"
+            android:src="@drawable/android_login"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="140sp"
+            />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:textColorHint="@color/primaryLightTexthintColor"
+            >
+            <EditText
+                android:id="@+id/userid_input_ngo_signin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/Hint_for_user_id"
+                android:inputType="text"
+                android:textSize="22sp"
+                android:ems="10"
+
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textColor="#000000"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:textColorHint="@color/primaryLightTexthintColor"
+            app:passwordToggleEnabled="true"
+            >
+            <EditText
+                android:id="@+id/password_input_ngo_signin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/Hint_for_password"
+                android:inputType="textPassword"
+                android:textSize="22sp"
+                android:ems="10"
+
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textColor="#000000"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20sp">
+
+            <CheckBox android:id="@+id/checkbox_input_rememberMe_ngo_signin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/checkbox_remember_me"
+                android:layout_marginLeft="20sp"
+                android:layout_marginRight="20sp"
+                />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/app_ngo_signin_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="70dp"
+            android:layout_marginBottom="20dp"
+            android:onClick="Login"
+            android:background="@drawable/button_signin"
+            android:textSize="27sp"
+            android:textColor="#000000"
+            android:text="sign in"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10sp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Not Registered? "
+                android:textSize="20sp"
+                />
+            <TextView
+                android:id="@+id/ngo_Register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Register."
+                android:textSize="20sp"
+                android:textColor="@color/colorOrange"
+                android:textStyle="italic"
+                android:onClick="Register"
+                />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
