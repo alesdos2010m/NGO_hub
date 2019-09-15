@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "907564708611",
+    "firebase_url": "https://ngohub-f33b2.firebaseio.com",
+    "project_id": "ngohub-f33b2",
+    "storage_bucket": "ngohub-f33b2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:907564708611:android:5c3ef9397ab500d5b06f36",
+        "android_client_info": {
+          "package_name": "com.example.ngohub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "907564708611-q4p074qk43288ctnihjpdls1sotl433k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRYeXKiUs_t801uJWtldDgBqlkCy9UHDg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "907564708611-q4p074qk43288ctnihjpdls1sotl433k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
