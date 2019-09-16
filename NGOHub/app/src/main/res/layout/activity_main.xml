@@ -45,7 +45,7 @@
         />
 
     <Button
-        android:id="@+id/iam_ngo"
+        android:id="@+id/iam_volunteer"
         android:layout_below="@id/app_Quote2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -60,8 +60,8 @@
         android:onClick="buttonClick"
     />
     <Button
-        android:id="@+id/iam_volunteer"
-        android:layout_below="@id/iam_ngo"
+        android:id="@+id/iam_ngo"
+        android:layout_below="@id/iam_volunteer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30sp"

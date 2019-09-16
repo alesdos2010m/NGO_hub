@@ -1,34 +1,42 @@
 {
   "project_info": {
-    "project_number": "907564708611",
-    "firebase_url": "https://ngohub-f33b2.firebaseio.com",
-    "project_id": "ngohub-f33b2",
-    "storage_bucket": "ngohub-f33b2.appspot.com"
+    "project_number": "701360451100",
+    "firebase_url": "https://ngohub-app.firebaseio.com",
+    "project_id": "ngohub-app",
+    "storage_bucket": "ngohub-app.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:907564708611:android:5c3ef9397ab500d5b06f36",
+        "mobilesdk_app_id": "1:701360451100:android:0ed0af1dd6bc22cdf979d9",
         "android_client_info": {
           "package_name": "com.example.ngohub"
         }
       },
       "oauth_client": [
         {
-          "client_id": "907564708611-q4p074qk43288ctnihjpdls1sotl433k.apps.googleusercontent.com",
+          "client_id": "701360451100-83fk0buock76jjp8egtnfbmsmeakudak.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ngohub",
+            "certificate_hash": "ca69e6ad25e645699258ad797beb18821b54997f"
+          }
+        },
+        {
+          "client_id": "701360451100-g41d08j73uo06ntppbtm31bgcv10c21c.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBRYeXKiUs_t801uJWtldDgBqlkCy9UHDg"
+          "current_key": "AIzaSyAMB6HEWjqgOmw_gmqU-_Sjyvbt94vGKB8"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "907564708611-q4p074qk43288ctnihjpdls1sotl433k.apps.googleusercontent.com",
+              "client_id": "701360451100-g41d08j73uo06ntppbtm31bgcv10c21c.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

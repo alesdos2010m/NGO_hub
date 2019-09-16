@@ -13,7 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/primaryTextColor"
-
         android:orientation="vertical"
         android:padding="30dp"
         tools:context=".SignupActivity"
@@ -146,7 +145,6 @@
                 android:inputType="number"
                 android:textSize="22sp"
                 android:ems="10"
-
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:textColor="#000000"
@@ -193,7 +191,6 @@
                 android:inputType="textPassword"
                 android:textSize="22sp"
                 android:ems="10"
-
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:textColor="#000000"
@@ -244,7 +241,7 @@
         <!--*************************************-->
 
         <Button
-            android:id="@+id/app_signup_btn"
+            android:id="@+id/app_signup_btn_ngo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
@@ -257,7 +254,8 @@
             android:textSize="27sp"
             android:textColor="#000000"
             android:text="sign up"
-            android:onClick="SignUp"
+            android:onClick="registeruser"
+
             />
         <LinearLayout
             android:layout_width="match_parent"
@@ -280,6 +278,7 @@
                 android:textColor="@color/colorOrange"
                 android:textStyle="italic"
                 android:onClick="Login"
+
                 />
 
 

@@ -10,8 +10,8 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity
 {
-  Button login_btn,signup_btn;
-  TextView skip_signin;
+  Button iamngo,iamvolunteer;
+  //TextView skip_signin;
   SessionManager sessionManager;
 
 
@@ -23,9 +23,9 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         sessionManager=new SessionManager(this);
-        login_btn =  findViewById(R.id.signin_btn);
-        signup_btn = findViewById(R.id.signup_btn);
-        skip_signin=findViewById(R.id.skip_signin);
+        iamngo =  findViewById(R.id.iam_ngo);
+        iamvolunteer = findViewById(R.id.iam_volunteer);
+        //skip_signin=findViewById(R.id.skip_signin);
         if(sessionManager.isLoggin()==true)
         {
             Intent intent = new Intent(MainActivity.this, HomeActivity.class);
@@ -36,24 +36,24 @@ public class MainActivity extends AppCompatActivity
     }
         public void buttonClick(View v)
         {
-            if(v.getId() == R.id.signup_btn)
+            if(v.getId() == R.id.iam_ngo)
             {
-                Intent intent = new Intent(MainActivity.this, SignupActivity.class);
+                Intent intent = new Intent(MainActivity.this, MainNGOActivity.class);
                 startActivity(intent);
-                finish();
+                //finish();
             }
-            else if(v.getId() == R.id.signin_btn)
+            else if(v.getId() == R.id.iam_volunteer)
             {
-                Intent intent = new Intent(MainActivity.this, SigninActivity.class);
+                Intent intent = new Intent(MainActivity.this, MainVolunteerActivity.class);
                 startActivity(intent);
-                finish();
+                //finish();
             }
-            else if(v.getId() == R.id.skip_signin)
+            /*else if(v.getId() == R.id.skip_signin)
             {
                 Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                 startActivity(intent);
                 finish();
-            }
+            } */
         }
 
 

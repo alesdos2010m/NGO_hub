@@ -94,7 +94,7 @@ public class SignupActivity extends AppCompatActivity {
                 {
                     Toast.makeText(getApplicationContext(), "Please Accept that the information provided by you is valid!", Toast.LENGTH_LONG).show();
                 }
-                else if(check_valid_info.isChecked() && check_accept_TnC.isChecked())
+                else if(!(check_valid_info.isChecked() && check_accept_TnC.isChecked()))
                 {
                     Toast.makeText(getApplicationContext(), "Please Accept the Terms and Conditions and Verify your credentials to continue", Toast.LENGTH_LONG).show();
                 }
