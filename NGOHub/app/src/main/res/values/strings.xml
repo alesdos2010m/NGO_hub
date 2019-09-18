@@ -8,4 +8,5 @@
     <string name="checkbox_remember_me">Remember me</string>
     <string name="checkbox_valid_info">I confirm that the information given in this form is true, complete and accurate.</string>
     <string name="checkbox_accept_TnC">I accept the Terms of Service</string>
+    <string name="YOUR_API_KEY">AIzaSyDcvwLvKoqsDxluk3V2M14v3JIlSOPl-PY</string>
 </resources>
