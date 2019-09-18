@@ -279,7 +279,7 @@
                 android:textSize="20sp"
                 android:textColor="@color/colorOrange"
                 android:textStyle="italic"
-                android:onClick="Login"
+                android:onClick="Login_NGO"
 
                 />
 

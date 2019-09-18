@@ -16,8 +16,6 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.libraries.places.api.Places;
-import com.google.android.libraries.places.api.net.PlacesClient;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -91,14 +89,12 @@ public class NGOSignupActivity extends AppCompatActivity {
                                         .setValue(ngoinfo).addOnCompleteListener(NGOSignupActivity.this,new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
-                                        if (task.isSuccessful()) {
+
                                             Toast.makeText(NGOSignupActivity.this, "Registration Sucess", Toast.LENGTH_LONG).show();
                                             Intent intent=new Intent(NGOSignupActivity.this,NGOSigninActivity.class);
                                             startActivity(intent);
-                                        }
-                                        else {
-                                            Toast.makeText(NGOSignupActivity.this, "Registration UnSucessful,Please try again!", Toast.LENGTH_LONG).show();
-                                        }
+
+
                                     }
                                 });
 
@@ -114,7 +110,7 @@ public class NGOSignupActivity extends AppCompatActivity {
 
 
 
-    public void Login(View view)
+    public void Login_NGO(View view)
     {
         Intent intent=new Intent(NGOSignupActivity.this,NGOSigninActivity.class);
         startActivity(intent);
