@@ -33,10 +33,10 @@ public class NGOSigninActivity extends AppCompatActivity {
         setContentView(R.layout.activity_ngosignin);
         auth = FirebaseAuth.getInstance();
 
-        if (auth.getCurrentUser() != null) {
-            startActivity(new Intent(NGOSigninActivity.this, HomeActivity.class));
+        /*if (auth.getCurrentUser() != null) {
+            startActivity(new Intent(NGOSigninActivity.this, MainNGOActivity.class));
             finish();
-        }
+        } */
         // set the view now
 
         inputEmail = (EditText) findViewById(R.id.userid_input_ngo_signin);
@@ -88,7 +88,7 @@ public class NGOSigninActivity extends AppCompatActivity {
 
                                 if(task.isSuccessful()) {
                                     Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(NGOSigninActivity.this, HomeActivity.class);
+                                    Intent intent = new Intent(NGOSigninActivity.this, MainNGOActivity.class);
                                     startActivity(intent);
                                     finish();
                                 }
