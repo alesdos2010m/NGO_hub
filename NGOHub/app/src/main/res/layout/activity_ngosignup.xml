@@ -15,7 +15,7 @@
         android:background="@color/primaryTextColor"
         android:orientation="vertical"
         android:padding="30dp"
-        tools:context=".SignupActivity"
+        tools:context=".NGOSignupActivity"
         >
 
         <com.google.android.material.textfield.TextInputLayout

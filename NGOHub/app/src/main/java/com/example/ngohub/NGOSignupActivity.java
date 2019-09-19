@@ -65,7 +65,26 @@ public class NGOSignupActivity extends AppCompatActivity {
         String password1 = password1_ngo.getText().toString();
         String password2 = password2_ngo.getText().toString();
 
+        if (TextUtils.isEmpty(email_id)) {
+            Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
+
+            if (TextUtils.isEmpty(password1)) {
+                Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            if (password1.length() < 6) {
+                Toast.makeText(getApplicationContext(), "Password too short, enter minimum 6 characters!", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+             if(!password1.equals(password2))
+        {
+            Toast.makeText(getApplicationContext(), "Passwords do not match!", Toast.LENGTH_SHORT).show();
+        }
 
 
 
@@ -90,7 +109,7 @@ public class NGOSignupActivity extends AppCompatActivity {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
 
-                                            Toast.makeText(NGOSignupActivity.this, "Registration Sucess", Toast.LENGTH_LONG).show();
+                                            Toast.makeText(NGOSignupActivity.this, "Registration Sucess", Toast.LENGTH_SHORT).show();
                                             Intent intent=new Intent(NGOSignupActivity.this,NGOSigninActivity.class);
                                             startActivity(intent);
 
@@ -115,6 +134,7 @@ public class NGOSignupActivity extends AppCompatActivity {
         Intent intent=new Intent(NGOSignupActivity.this,NGOSigninActivity.class);
         startActivity(intent);
     }
+
 
 
 
