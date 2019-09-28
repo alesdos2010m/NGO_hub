@@ -1,28 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ngohub">
-    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version"></meta-data>
-         <meta-data
-             android:name="com.google.android.gms.auth.api"
-             android:value="AIzaSyDcvwLvKoqsDxluk3V2M14v3JIlSOPl-PY"></meta-data>
+        <activity android:name=".NGO_DashboardActivity"></activity>
 
-
-
-
-        <activity android:name=".MainVolunteerActivity"></activity>
+        <activity android:name=".MainVolunteerActivity" />
         <activity android:name=".MainNGOActivity" />
+
         <activity android:name=".NGOSignupActivity" />
         <activity android:name=".NGOSigninActivity" />
         <activity android:name=".HomeActivity" />
@@ -35,11 +26,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
-
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.gms.auth.api"
+            android:value="AIzaSyDcvwLvKoqsDxluk3V2M14v3JIlSOPl-PY" />
     </application>
 
-
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

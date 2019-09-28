@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp"
+    tools:context=".NGO_DashboardActivity"
+    >
+
+    <EditText
+        android:id="@+id/title_Event_Post_NGO_Dashboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Give some Title for the post"
+        android:layout_marginTop="10dp"
+        />
+    <EditText
+        android:id="@+id/caption_Event_Post_NGO_Dashboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="caption"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/title_Event_Post_NGO_Dashboard"
+        />
+
+    <LinearLayout
+        android:id="@+id/choose_image_Event_Post_NGO_Dashboard_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/caption_Event_Post_NGO_Dashboard"
+        android:padding="10sp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Upload an Image for the Event Post"
+            android:textSize="16sp"
+            android:padding="10sp"
+            />
+        <Button
+            android:id="@+id/choose_image_Event_Post_NGO_Dashboard_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose file"
+            android:layout_below="@id/caption_Event_Post_NGO_Dashboard"
+            />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/image_preview_Event_Post_NGO_Dashboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/choose_image_Event_Post_NGO_Dashboard_layout"
+        android:layout_marginTop="16dp"
+        />
+    <EditText
+        android:id="@+id/venue_Event_Post_NGO_Dashboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Add a venue address for the Event"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/image_preview_Event_Post_NGO_Dashboard"
+        />
+    <Button
+        android:id="@+id/post_Event_Post_NGO_Dashboard_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="Post"
+        />
+</RelativeLayout>

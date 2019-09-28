@@ -8,12 +8,56 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:385940411433:android:05d9d54c7fc42b797bf838",
+        "android_client_info": {
+          "package_name": "com.example.demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "385940411433-nlnq1e3ts7f5g9ob92mc25ficn7l5j9a.apps.googleusercontent.com",
+          "android_info": {
+            "package_name": "com.example.demo",
+            "certificate_hash": "215dbdb596be56d1465b4c60c33710753698cd2a"
+          }
+        },
+        {
+          "client_id": "385940411433-h4ni28v2uj189sej2tbd06r3k2s5224r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJSX5EhdQUSNDYOptXN5TLhRYoVEJts1w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "385940411433-h4ni28v2uj189sej2tbd06r3k2s5224r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:385940411433:android:62e022de770ea0fa7bf838",
         "android_client_info": {
           "package_name": "com.example.ngohub"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "385940411433-9h54ftg40qk0n9rhc23a883526cq7oja.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ngohub",
+            "certificate_hash": "215dbdb596be56d1465b4c60c33710753698cd2a"
+          }
+        },
         {
           "client_id": "385940411433-qnmbueptqj6tpekl9kdkirmmln7tpqhr.apps.googleusercontent.com",
           "client_type": 1,
@@ -30,7 +74,6 @@
       "api_key": [
         {
           "current_key": "AIzaSyBJSX5EhdQUSNDYOptXN5TLhRYoVEJts1w"
-
         }
       ],
       "services": {
