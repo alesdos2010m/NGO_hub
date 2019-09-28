@@ -88,7 +88,7 @@ public class NGOSigninActivity extends AppCompatActivity {
 
                                 if(task.isSuccessful()) {
                                     Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(NGOSigninActivity.this, MainNGOActivity.class);
+                                    Intent intent = new Intent(NGOSigninActivity.this, HomeActivity.class);
                                     startActivity(intent);
                                     finish();
                                 }

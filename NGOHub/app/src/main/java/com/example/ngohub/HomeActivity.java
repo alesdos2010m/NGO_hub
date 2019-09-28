@@ -2,6 +2,7 @@ package com.example.ngohub;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -73,6 +74,12 @@ public class HomeActivity extends AppCompatActivity {
         recyclerView_Posts.setAdapter(eventPostsAdapter);
         //new code ends here
         //******************************************************
+    }
+
+    public void Eventclick(View view)
+    {
+        Intent intent = new Intent(HomeActivity.this, NGO_DashboardActivity.class);
+        startActivity(intent);
     }
 
     @Override
