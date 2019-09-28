@@ -48,12 +48,12 @@ public class MainActivity extends AppCompatActivity
                 startActivity(intent);
                 //finish();
             }
-            /*else if(v.getId() == R.id.skip_signin)
+          else if(v.getId() == R.id.skip_signin)
             {
                 Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                 startActivity(intent);
                 finish();
-            } */
+            }
         }
 
 
