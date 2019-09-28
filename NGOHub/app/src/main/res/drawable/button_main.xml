@@ -32,7 +32,7 @@
                 android:width="1dip"
                 android:color="@color/colorAccent">
             </stroke>
-            <solid android:color="@color/colorAccent"></solid>
+            <solid android:color="@color/colorPapayaWhip"></solid>
         </shape>
     </item>
 </selector>

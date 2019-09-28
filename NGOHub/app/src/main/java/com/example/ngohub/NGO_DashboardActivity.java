@@ -54,14 +54,21 @@ public class NGO_DashboardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ngo__dashboard);
 
-        storageReference = FirebaseStorage.getInstance().getReference("NGO_Event_Post");    //storage reference
+        mauth = FirebaseAuth.getInstance();
+        if (mauth.getCurrentUser() == null) {
+            Intent intent = new Intent(NGO_DashboardActivity.this, NGOSigninActivity.class);
+            startActivity(intent);
+            Toast.makeText(NGO_DashboardActivity.this, "Please Login as VO/NGO first...", Toast.LENGTH_LONG).show();
+            return;
+        }
+        current_NGO_UUID = mauth.getCurrentUser().getUid();
 
+        storageReference = FirebaseStorage.getInstance().getReference("NGO_Event_Post");    //storage reference
         firebaseDatabase = FirebaseDatabase.getInstance();
         ngo_EventPosts_dbRef = firebaseDatabase.getReference("NGO_EventPosts");               //database reference
-        ngo_NgoInformation_dbRef = firebaseDatabase.getReference("NgoInformation").child(current_NGO_UUID).child("NGO_EventPosts");
-
-        mauth = FirebaseAuth.getInstance();
-        current_NGO_UUID = mauth.getCurrentUser().getUid();
+        if (firebaseDatabase.getReference("NgoInformation").child(current_NGO_UUID) != null) {
+            ngo_NgoInformation_dbRef = firebaseDatabase.getReference("NgoInformation").child(current_NGO_UUID).child("NGO_EventPosts");
+        }
 
         button_choose = (Button) findViewById(R.id.choose_image_Event_Post_NGO_Dashboard_btn);
         button_post = (Button) findViewById(R.id.post_Event_Post_NGO_Dashboard_btn);

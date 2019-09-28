@@ -40,7 +40,6 @@ public class EventPostsAdapter extends RecyclerView.Adapter<EventPostsAdapter.Po
         holder.eventVenue.setText(ngo_eventPosts.getVenue());
         Glide.with(mctx).load(ngo_eventPosts.getImageAddress()).into(holder.eventPostImage);
 
-        //holder.eventTitle.setText(eventPosts.);
     }
     @Override
     public int getItemCount() {
