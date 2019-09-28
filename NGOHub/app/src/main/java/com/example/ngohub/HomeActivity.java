@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -17,6 +18,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import com.google.android.material.bottomnavigation.BottomNavigationItemView;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +28,7 @@ import java.util.List;
 
 
 public class HomeActivity extends AppCompatActivity {
-    Button logout_button;                                                   //logout button
+    //Button logout_button;                                                   //logout button
     //**********************************************************
     private RecyclerView recyclerView_Posts;
     private RecyclerView.LayoutManager layoutManager;
@@ -37,7 +41,7 @@ public class HomeActivity extends AppCompatActivity {
         //old code for logout button and old things
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        final SessionManager sessionManager=new SessionManager(this);
+        /*final SessionManager sessionManager=new SessionManager(this);
         sessionManager.checkLogin();
         setContentView(R.layout.activity_home);
 
@@ -51,7 +55,7 @@ public class HomeActivity extends AppCompatActivity {
                 sessionManager.logout();
             }
         });
-        //old code ends here
+        //old code ends here */
 
         //******************************************************
         //new code for recycler view and other views starts here
@@ -76,7 +80,7 @@ public class HomeActivity extends AppCompatActivity {
         //******************************************************
     }
 
-    public void Eventclick(View view)
+    public void Eventclick(MenuItem view)
     {
         Intent intent = new Intent(HomeActivity.this, NGO_DashboardActivity.class);
         startActivity(intent);
