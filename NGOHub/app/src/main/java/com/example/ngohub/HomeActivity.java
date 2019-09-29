@@ -1,5 +1,6 @@
 package com.example.ngohub;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -17,24 +18,31 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
 //**************************************
-
-
 public class HomeActivity extends AppCompatActivity {
-    //Button logout_button;                                                   //logout button
+    //Button logout_button;                                                 //logout button
+
+
     //**********************************************************
     private RecyclerView recyclerView_Posts;
     private RecyclerView.LayoutManager layoutManager;
 
     EventPostsAdapter eventPostsAdapter;
     List<NGO_EventPosts> eventPostsList;
+    DatabaseReference databaseReference;                                    //Firebase database reference declaration
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,26 +64,35 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
         //old code ends here */
-
         //******************************************************
         //new code for recycler view and other views starts here
-        eventPostsList = new ArrayList<>();
-        recyclerView_Posts = (RecyclerView) findViewById(R.id.recyclerView_posts);
+        recyclerView_Posts = findViewById(R.id.recyclerView_posts);
         recyclerView_Posts.setHasFixedSize(true);
+        eventPostsList = new ArrayList<>();
 
         layoutManager = new LinearLayoutManager(this);
         recyclerView_Posts.setLayoutManager(layoutManager);
 
-        //
-        //data insertion begins
-        //here we have inserted the data in eventPostList
-        /* by passing values to object of EventPosts.java class*/
-        //and end of data insertion...
-        //
+        //Firebase database reference definition
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("NGO_EventPosts");
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot postSnapshot : dataSnapshot.getChildren()){
+                    NGO_EventPosts ngo_eventPosts = postSnapshot.getValue(NGO_EventPosts.class);
+                    eventPostsList.add(ngo_eventPosts);
+                }
+                //connecting adapter with RecyclerView
+                eventPostsAdapter = new EventPostsAdapter(HomeActivity.this, eventPostsList);
+                recyclerView_Posts.setAdapter(eventPostsAdapter);
+            }
 
-        //connecting adapter with RecyclerView
-        eventPostsAdapter = new EventPostsAdapter(this, eventPostsList);
-        recyclerView_Posts.setAdapter(eventPostsAdapter);
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(HomeActivity.this, "Oops... Something Went Wrong", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         //new code ends here
         //******************************************************
     }

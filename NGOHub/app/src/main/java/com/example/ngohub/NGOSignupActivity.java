@@ -34,9 +34,6 @@ public class NGOSignupActivity extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     private ProgressBar progressBar;
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,10 +50,8 @@ public class NGOSignupActivity extends AppCompatActivity {
         login_ngo=(TextView)findViewById(R.id.Login_ngo);
         databaseReference= FirebaseDatabase.getInstance().getReference("NgoInformation");
         firebaseAuth=FirebaseAuth.getInstance();
-
-
-
     }
+
     public void RegisterUser(View view) {
         final String name = name_ngo.getText().toString();
         final String id = id_ngo.getText().toString();
@@ -70,74 +65,50 @@ public class NGOSignupActivity extends AppCompatActivity {
             return;
         }
 
-
-            if (TextUtils.isEmpty(password1)) {
-                Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
-            if (password1.length() < 6) {
-                Toast.makeText(getApplicationContext(), "Password too short, enter minimum 6 characters!", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
-             if(!password1.equals(password2))
-        {
+        if (TextUtils.isEmpty(password1)) {
+            Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (password1.length() < 6) {
+            Toast.makeText(getApplicationContext(), "Password too short, enter minimum 6 characters!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(!password1.equals(password2)) {
             Toast.makeText(getApplicationContext(), "Passwords do not match!", Toast.LENGTH_SHORT).show();
         }
+        firebaseAuth.createUserWithEmailAndPassword(email_id, password1)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
 
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            NgoInformation ngoinfo = new NgoInformation(
+                                    name,
+                                    id,
+                                    contact_no,
+                                    email_id
+                            );
+                            FirebaseDatabase.getInstance().getReference("NgoInformation")
+                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                    .setValue(ngoinfo).addOnCompleteListener(NGOSignupActivity.this,new OnCompleteListener<Void>() {
 
-
-            firebaseAuth.createUserWithEmailAndPassword(email_id, password1)
-                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-
-                            if (task.isSuccessful()) {
-
-                                NgoInformation ngoinfo = new NgoInformation(
-                                        name,
-                                        id,
-                                        contact_no,
-                                        email_id
-
-                                );
-
-                                FirebaseDatabase.getInstance().getReference("NgoInformation")
-                                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                        .setValue(ngoinfo).addOnCompleteListener(NGOSignupActivity.this,new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
                                             Toast.makeText(NGOSignupActivity.this, "Registration Sucess", Toast.LENGTH_SHORT).show();
                                             Intent intent=new Intent(NGOSignupActivity.this,NGOSigninActivity.class);
                                             startActivity(intent);
-
-
-                                    }
-                                });
-
-                            } else {
-                                Toast.makeText(NGOSignupActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
-                            }
+                                }
+                            });
                         }
-                    });
+                        else {
+                            Toast.makeText(NGOSignupActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+    }
 
-        }
-
-
-
-
-
-    public void Login_NGO(View view)
-    {
+    public void Login_NGO(View view) {
         Intent intent=new Intent(NGOSignupActivity.this,NGOSigninActivity.class);
         startActivity(intent);
     }
-
-
-
-
-
-    }
-
+}

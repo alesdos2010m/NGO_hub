@@ -53,10 +53,10 @@ public class NGOSigninActivity extends AppCompatActivity {
             public void onClick(View v) {
                 startActivity(new Intent(NGOSigninActivity.this, NGOSignupActivity.class));
             }
-        });
+       });
 
+       btnSignin.setOnClickListener(new View.OnClickListener() {
 
-        btnSignin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String email = inputEmail.getText().toString();
@@ -66,7 +66,6 @@ public class NGOSigninActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
                 if (TextUtils.isEmpty(password)) {
                     Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
                     return;
@@ -75,31 +74,27 @@ public class NGOSigninActivity extends AppCompatActivity {
                     Toast.makeText(NGOSigninActivity.this,"Password too short!", Toast.LENGTH_SHORT).show();
                 }
 
-
-
                 //authenticate user
                 auth.signInWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(NGOSigninActivity.this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                // If sign in fails, display a message to the user. If sign in succeeds
-                                // the auth state listener will be notified and logic to handle the
-                                // signed in user can be handled in the listener.
+                    .addOnCompleteListener(NGOSigninActivity.this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            // If sign in fails, display a message to the user. If sign in succeeds
+                            // the auth state listener will be notified and logic to handle the
+                            // signed in user can be handled in the listener.
 
-                                if(task.isSuccessful()) {
-                                    Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(NGOSigninActivity.this, HomeActivity.class);
-                                    startActivity(intent);
-                                    finish();
-                                }
-
-                                else{
-                                        Toast.makeText(NGOSigninActivity.this,"Sorry,invalid credentials!,try again..", Toast.LENGTH_LONG).show();
-                                    }
-
+                            if(task.isSuccessful()) {
+                                Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(NGOSigninActivity.this, HomeActivity.class);
+                                startActivity(intent);
+                                finish();
                             }
-                        });
+                            else {
+                                Toast.makeText(NGOSigninActivity.this,"Sorry,invalid credentials!,try again..", Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    });
             }
-        });
+            });
     }
 }

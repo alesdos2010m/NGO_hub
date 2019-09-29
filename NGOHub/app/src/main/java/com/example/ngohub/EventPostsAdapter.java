@@ -28,7 +28,7 @@ public class EventPostsAdapter extends RecyclerView.Adapter<EventPostsAdapter.Po
     @Override
     public PostsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(mctx);
-        View view = inflater.inflate(R.layout.event_posts_list_view_layout, null);
+        View view = inflater.inflate(R.layout.event_posts_list_view_layout,parent, false);
         return new PostsViewHolder(view);
     }
     @Override
@@ -38,8 +38,9 @@ public class EventPostsAdapter extends RecyclerView.Adapter<EventPostsAdapter.Po
         holder.eventTitle.setText(ngo_eventPosts.getTitle());
         holder.eventCaption.setText(ngo_eventPosts.getCaption());
         holder.eventVenue.setText(ngo_eventPosts.getVenue());
-        Glide.with(mctx).load(ngo_eventPosts.getImageAddress()).into(holder.eventPostImage);
-
+        Glide.with(mctx)
+                .load(ngo_eventPosts.getImageAddress())
+                .into(holder.eventPostImage);
     }
     @Override
     public int getItemCount() {

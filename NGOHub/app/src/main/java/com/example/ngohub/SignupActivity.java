@@ -70,7 +70,6 @@ public class SignupActivity extends AppCompatActivity {
                 String type = "register";
 
                 if(check_valid_info.isChecked() && check_accept_TnC.isChecked()) {
-
                     if (TextUtils.isEmpty(first_name) || TextUtils.isEmpty(middle_name) || TextUtils.isEmpty(last_name) || TextUtils.isEmpty(gender) || TextUtils.isEmpty(contact_no) || TextUtils.isEmpty(email_id) || TextUtils.isEmpty(password1) || TextUtils.isEmpty(password2)) {
                         Toast.makeText(getApplicationContext(), "Please fill all the entries", Toast.LENGTH_LONG).show();
                     }
@@ -86,23 +85,18 @@ public class SignupActivity extends AppCompatActivity {
                         finish();
                     }
                 }
-                else if(!check_accept_TnC.isChecked())
-                {
+                else if(!check_accept_TnC.isChecked()) {
                     Toast.makeText(getApplicationContext(), "Please Accept the Terms and Conditions to continue", Toast.LENGTH_LONG).show();
                 }
-                else if(!check_valid_info.isChecked())
-                {
+                else if(!check_valid_info.isChecked()) {
                     Toast.makeText(getApplicationContext(), "Please Accept that the information provided by you is valid!", Toast.LENGTH_LONG).show();
                 }
-                else if(!(check_valid_info.isChecked() && check_accept_TnC.isChecked()))
-                {
+                else if(!(check_valid_info.isChecked() && check_accept_TnC.isChecked())) {
                     Toast.makeText(getApplicationContext(), "Please Accept the Terms and Conditions and Verify your credentials to continue", Toast.LENGTH_LONG).show();
                 }
             }
         });
-
     }
-
     //Already have an account? Login.
     public void Login(View view)
     {
@@ -111,12 +105,9 @@ public class SignupActivity extends AppCompatActivity {
         finish();
     }
 
-
     public class RegisterBackgroundWorker extends AsyncTask<String,Void,String> {
 
         Context context;
-
-
 
         public RegisterBackgroundWorker(Context contxt) {
             context = contxt;
@@ -140,7 +131,7 @@ public class SignupActivity extends AppCompatActivity {
                     HttpURLConnection httpURLConnection=(HttpURLConnection)url.openConnection();
                     httpURLConnection.setRequestMethod("POST");
                     httpURLConnection.setDoOutput(true);
-                    //httpURLConnection.setDoInput(true);
+//                    httpURLConnection.setDoInput(true);
                     OutputStream outputStream=httpURLConnection.getOutputStream();
                     BufferedWriter bufferedWriter=new BufferedWriter(new OutputStreamWriter(outputStream,"UTF-8"));
                     String post_data= URLEncoder.encode("first_name","UTF-8")+"="+URLEncoder.encode(first_name,"UTF-8")+"&"+
@@ -166,10 +157,11 @@ public class SignupActivity extends AppCompatActivity {
                     inputStream.close();
                     httpURLConnection.disconnect();
                     return result;
-
-                } catch (MalformedURLException e) {
+                }
+                catch (MalformedURLException e) {
                     e.printStackTrace();
-                } catch (IOException e) {
+                }
+                catch (IOException e) {
                     e.printStackTrace();
                 }
             }
@@ -178,23 +170,20 @@ public class SignupActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String result) {
-            if(result.equals("Email ID already Exists"))
-            {
+            if(result.equals("Email ID already Exists")) {
                 Toast.makeText(getApplicationContext(),result, Toast.LENGTH_LONG).show();
                 Intent intent=new Intent(SignupActivity.this,SigninActivity.class);
                 startActivity(intent);
                 finish();
             }
-            else if(result.equals("Registered Successfully"))
-            {
+            else if(result.equals("Registered Successfully")) {
                 Toast.makeText(getApplicationContext(),result, Toast.LENGTH_LONG).show();
                 Toast.makeText(getApplicationContext(),"Please Login to continue!", Toast.LENGTH_LONG).show();
                 Intent intent=new Intent(SignupActivity.this,SigninActivity.class);
                 startActivity(intent);
                 finish();
             }
-            else if(result.equals("NOT Registered Successfully"))
-            {
+            else if(result.equals("NOT Registered Successfully")) {
                 Toast.makeText(getApplicationContext(),result, Toast.LENGTH_LONG).show();
                 Intent intent=new Intent(SignupActivity.this,SignupActivity.class);
                 startActivity(intent);
@@ -211,6 +200,5 @@ public class SignupActivity extends AppCompatActivity {
         protected void onProgressUpdate(Void... values) {
             super.onProgressUpdate(values);
         }
-
     }
 }

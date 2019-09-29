@@ -42,7 +42,7 @@ public class NGO_DashboardActivity extends AppCompatActivity {
     private String EventPost_UUID;
 
     private FirebaseDatabase firebaseDatabase;                      //FirebaseDatabase declaration
-    private DatabaseReference ngo_EventPosts_dbRef;                    //FirebaseDatabase Reference declaration
+    private DatabaseReference ngo_EventPosts_dbRef;                 //FirebaseDatabase Reference declaration
     private DatabaseReference ngo_NgoInformation_dbRef;
 
     private FirebaseAuth mauth;                                     //FirebaseDatabase Authentication Declaration

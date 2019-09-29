@@ -9,7 +9,7 @@
     android:paddingRight="@dimen/intrinsic_padding"
     android:paddingTop="@dimen/intrinsic_padding">
 
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
         android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,13 +22,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <ImageView
-                android:id="@+id/event_post_image"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/post_list_item_image_height"
-                android:layout_marginBottom="@dimen/intrinsic_padding"
-                android:scaleType="centerCrop" />
+            android:layout_height="match_parent"
+            >
             <TextView
                 android:id="@+id/event_title"
                 android:layout_width="wrap_content"
@@ -36,15 +31,15 @@
                 android:paddingLeft="@dimen/intrinsic_padding"
                 android:paddingRight="@dimen/intrinsic_padding"
                 android:layout_marginBottom="@dimen/intrinsic_padding"
-                android:layout_below="@+id/event_post_image"
                 android:layout_alignParentStart="true"
-
                 android:ellipsize="end"
                 android:maxLines="1"
 
+                android:textSize="22sp"
+                android:textStyle="bold"
+
                 android:layout_alignParentLeft="true"
                 />
-
             <TextView
                 android:id="@+id/event_caption"
                 android:layout_width="wrap_content"
@@ -56,23 +51,39 @@
                 android:ellipsize="end"
                 android:maxLines="2"
 
+                android:textSize="18sp"
+                android:textStyle="italic"
+
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentLeft="true"
-                android:layout_alignParentRight="true" />
+                android:layout_alignParentRight="true"
+                />
+            <ImageView
+                android:id="@+id/event_post_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10sp"
+                android:layout_marginBottom="@dimen/intrinsic_padding"
+                android:layout_below="@id/event_caption"
+                />
             <TextView
                 android:id="@+id/event_venue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="@dimen/intrinsic_padding"
                 android:paddingRight="@dimen/intrinsic_padding"
-                android:layout_below="@+id/event_caption"
+                android:layout_below="@+id/event_post_image"
                 android:layout_alignParentStart="true"
                 android:ellipsize="end"
                 android:maxLines="2"
 
+                android:textSize="18sp"
+                android:textStyle="normal"
+
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentLeft="true"
-                android:layout_alignParentRight="true"/>
+                android:layout_alignParentRight="true"
+                />
         </RelativeLayout>
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 </LinearLayout>

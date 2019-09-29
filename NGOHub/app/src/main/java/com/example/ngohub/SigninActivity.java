@@ -35,9 +35,8 @@ public class SigninActivity extends AppCompatActivity {
     TextView text_register;
     SessionManager sessionManager;
     SharedPreferences loginPreferences;
-   SharedPreferences.Editor loginPrefsEditor;
-   Boolean saveLogin;
-
+    SharedPreferences.Editor loginPrefsEditor;
+    Boolean saveLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,13 +57,7 @@ public class SigninActivity extends AppCompatActivity {
             edit_password.setText(loginPreferences.getString("password", ""));
             remember_me.setChecked(true);
         }
-
-
-
-
-
     }
-
     //Not Registered? Register.
     public void Register(View view)
     {
@@ -84,7 +77,6 @@ public class SigninActivity extends AppCompatActivity {
             loginPrefsEditor.putString("password", password);
             loginPrefsEditor.apply();
         }
-
 
         if(TextUtils.isEmpty(email_id)&&TextUtils.isEmpty(password))
         {
@@ -144,9 +136,11 @@ public class SigninActivity extends AppCompatActivity {
                     inputStream.close();
                     httpURLConnection.disconnect();
                     return result;
-                } catch (MalformedURLException e) {
+                }
+                catch (MalformedURLException e) {
                     e.printStackTrace();
-                } catch (IOException e) {
+                }
+                catch (IOException e) {
                     e.printStackTrace();
                 }
             }
@@ -155,23 +149,20 @@ public class SigninActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
 
-
-            if(result.equals("Sorry,the Email ID does not exist,Please Register Yourself."))
-            {
+            if(result.equals("Sorry,the Email ID does not exist,Please Register Yourself.")) {
                 Toast.makeText(getApplicationContext(),result, Toast.LENGTH_LONG).show();
                 Intent intent=new Intent(SigninActivity.this,MainActivity.class);
                 startActivity(intent);
                 finish();
             }
-            else if(result.equals("Invalid Email id or password,Please try again"))
-            {
+            else if(result.equals("Invalid Email id or password,Please try again")) {
                 Toast.makeText(getApplicationContext(),result, Toast.LENGTH_LONG).show();
                 Intent intent=new Intent(SigninActivity.this,SigninActivity.class);
                 startActivity(intent);
                 finish();
             }
-          else //Login Successful
-            {
+            //Login Successful
+            else {
                 Toast.makeText(getApplicationContext(),"Login Successful!", Toast.LENGTH_LONG).show();
                 sessionManager.createSession(result);
                 Intent intent=new Intent(SigninActivity.this,HomeActivity.class);
@@ -179,10 +170,12 @@ public class SigninActivity extends AppCompatActivity {
                 finish();
             }
         }
+
         @Override
         protected void onPreExecute() {
 
         }
+
         @Override
         protected void onProgressUpdate(Void... values) {
             super.onProgressUpdate(values);

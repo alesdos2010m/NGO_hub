@@ -3,7 +3,8 @@
 buildscript {
     repositories {
         mavenCentral()                              //dependency for Glide
-        google()
+        google()  // Google's Maven repository
+
         maven {
             url 'https://maven.fabric.io/public'
         }
@@ -21,7 +22,7 @@ buildscript {
 
 allprojects {
     repositories {
-        google()
+        google()  // Google's Maven repository
         jcenter()
         
     }

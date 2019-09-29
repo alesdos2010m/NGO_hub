@@ -31,4 +31,3 @@ public class MainVolunteerActivity extends AppCompatActivity {
         }
     }
 }
-
