@@ -76,6 +76,15 @@ public class NGOSignupActivity extends AppCompatActivity {
         if(!password1.equals(password2)) {
             Toast.makeText(getApplicationContext(), "Passwords do not match!", Toast.LENGTH_SHORT).show();
         }
+        if(!accept_ngo.isChecked()) {
+            Toast.makeText(getApplicationContext(), "Please Accept the Terms and Conditions to continue", Toast.LENGTH_LONG).show();
+        }
+        else if(!valid_ngo.isChecked()) {
+            Toast.makeText(getApplicationContext(), "Please Accept that the information provided by you is valid!", Toast.LENGTH_LONG).show();
+        }
+        else if(!(valid_ngo.isChecked() && accept_ngo.isChecked())) {
+            Toast.makeText(getApplicationContext(), "Please Accept the Terms and Conditions and Verify your credentials to continue", Toast.LENGTH_LONG).show();
+        }
         firebaseAuth.createUserWithEmailAndPassword(email_id, password1)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
 

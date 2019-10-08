@@ -56,9 +56,10 @@ public class NGO_DashboardActivity extends AppCompatActivity {
 
         mauth = FirebaseAuth.getInstance();
         if (mauth.getCurrentUser() == null) {
+            Toast.makeText(NGO_DashboardActivity.this, "Please Login as VO/NGO first...", Toast.LENGTH_LONG).show();
             Intent intent = new Intent(NGO_DashboardActivity.this, NGOSigninActivity.class);
             startActivity(intent);
-            Toast.makeText(NGO_DashboardActivity.this, "Please Login as VO/NGO first...", Toast.LENGTH_LONG).show();
+            finish();
             return;
         }
         current_NGO_UUID = mauth.getCurrentUser().getUid();

@@ -230,13 +230,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/checkbox_valid_info"
-                android:checked="true"
                 />
             <CheckBox android:id="@+id/checkbox_input_accept_TnC_ngo_signup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/checkbox_accept_TnC"
-                android:checked="true"
                 />
         </LinearLayout>
 

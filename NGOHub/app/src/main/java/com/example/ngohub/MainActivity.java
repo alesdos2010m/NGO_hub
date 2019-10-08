@@ -5,30 +5,39 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-//import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+
 
 public class MainActivity extends AppCompatActivity {
-    Button iamngo,iamvolunteer;
-//    TextView skip_signin;
+
     SessionManager sessionManager;
+    FirebaseAuth mauth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        sessionManager=new SessionManager(this);
-        iamngo =  findViewById(R.id.iam_ngo);
-        iamvolunteer = findViewById(R.id.iam_volunteer);
-//        skip_signin=findViewById(R.id.skip_signin);
+        sessionManager=new SessionManager(this); //Volunteer
+        mauth = FirebaseAuth.getInstance();  //Vo/NGO
+
+        //Session Management for Volunteer
         if(sessionManager.isLoggin()==true)
         {
             Intent intent = new Intent(MainActivity.this, HomeActivity.class);
             startActivity(intent);
             finish();
-            sessionManager.checkLogin();
         }
+        //Session Management for Vo/NGO
+        else if (mauth.getCurrentUser() != null) {
+
+            Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
     }
         public void buttonClick(View v)
         {
@@ -36,19 +45,19 @@ public class MainActivity extends AppCompatActivity {
             {
                 Intent intent = new Intent(MainActivity.this, MainNGOActivity.class);
                 startActivity(intent);
-//                finish();
+              finish();
             }
             else if(v.getId() == R.id.iam_volunteer)
             {
                 Intent intent = new Intent(MainActivity.this, MainVolunteerActivity.class);
                 startActivity(intent);
-                //finish();
+                finish();
             }
           else if(v.getId() == R.id.skip_signin)
             {
                 Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                 startActivity(intent);
-                finish();
+                //finish();
             }
         }
 }

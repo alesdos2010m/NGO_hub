@@ -76,6 +76,9 @@ public class SignupActivity extends AppCompatActivity {
                     else if (TextUtils.isEmpty(first_name) && TextUtils.isEmpty(middle_name) && TextUtils.isEmpty(last_name)  && TextUtils.isEmpty(contact_no) && TextUtils.isEmpty(email_id) && TextUtils.isEmpty(password1) && TextUtils.isEmpty(password2)) {
                         Toast.makeText(getApplicationContext(), "Please fill all the entries", Toast.LENGTH_LONG).show();
                     }
+                    else if (password1.length() < 6) {
+                        Toast.makeText(getApplicationContext(), "Password too short, enter minimum 6 characters!", Toast.LENGTH_SHORT).show();
+                    }
                     else if (!(password1.equals(password2))) {
                         Toast.makeText(getApplicationContext(), "Passwords do not match!", Toast.LENGTH_LONG).show();
                     }

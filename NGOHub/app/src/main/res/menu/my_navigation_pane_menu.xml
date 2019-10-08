@@ -18,6 +18,7 @@
     <item android:id="@+id/button_logout"
         android:icon="@drawable/ic_help_black_24dp"
         android:title="Log Out"
+        android:onClick="Logout_Volunteer"
         />
     </group>
 
