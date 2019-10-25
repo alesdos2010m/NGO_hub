@@ -43,7 +43,7 @@ public class NGO_DashboardActivity extends AppCompatActivity {
 
     private FirebaseDatabase firebaseDatabase;                      //FirebaseDatabase declaration
     private DatabaseReference ngo_EventPosts_dbRef;                 //FirebaseDatabase Reference declaration
-    private DatabaseReference ngo_NgoInformation_dbRef;
+    private DatabaseReference ngo_NgoInformation_dbRef;             //FirebaseDatabase Reference declaration
 
     private FirebaseAuth mauth;                                     //FirebaseDatabase Authentication Declaration
 
@@ -70,7 +70,6 @@ public class NGO_DashboardActivity extends AppCompatActivity {
         if (firebaseDatabase.getReference("NgoInformation").child(current_NGO_UUID) != null) {
             ngo_NgoInformation_dbRef = firebaseDatabase.getReference("NgoInformation").child(current_NGO_UUID).child("NGO_EventPosts");
         }
-
         button_choose = (Button) findViewById(R.id.choose_image_Event_Post_NGO_Dashboard_btn);
         button_post = (Button) findViewById(R.id.post_Event_Post_NGO_Dashboard_btn);
         image_preview = (ImageView) findViewById(R.id.image_preview_Event_Post_NGO_Dashboard);

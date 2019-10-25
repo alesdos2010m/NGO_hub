@@ -102,8 +102,9 @@ public class SigninActivity extends AppCompatActivity {
     }
     public class LoginBackgroundWorker extends AsyncTask<String,Void,String> {
         Context context;
-        String email;
-        RegistrationForm registrationForm;
+        //String email;
+        String First_name,Middle_name,Last_name,Gender,Phone_no,Email_id;
+
 
 
         public LoginBackgroundWorker(Context contxt) {
@@ -117,7 +118,6 @@ public class SigninActivity extends AppCompatActivity {
             {
                 try {
                     String email_id=params[1];
-                    email=email_id;
                     String password=params[2];
                     URL url=new URL(login_url);
                     HttpURLConnection httpURLConnection=(HttpURLConnection)url.openConnection();
@@ -183,35 +183,28 @@ public class SigninActivity extends AppCompatActivity {
 
                         //getting product object from json array
                         JSONObject first_name = array.getJSONObject(0);
-                        String First_name=first_name.getString("First_name");
+                         First_name=first_name.getString("First_name");
 
                         JSONObject middle_name = array.getJSONObject(1);
-                        String Middle_name=middle_name.getString("Middle_name");
+                         Middle_name=middle_name.getString("Middle_name");
 
                         JSONObject last_name = array.getJSONObject(2);
-                        String Last_name=last_name.getString("Last_name");
+                         Last_name=last_name.getString("Last_name");
 
                         JSONObject gender = array.getJSONObject(3);
-                        String Gender=gender.getString("Gender");
+                         Gender=gender.getString("Gender");
 
                         JSONObject contact_no  = array.getJSONObject(4);
-                        String Phone_no=contact_no.getString("Phone_no");
+                         Phone_no=contact_no.getString("Phone_no");
 
                         JSONObject email_id = array.getJSONObject(5);
-                        String Email_id=email_id.getString("Email_ID");
-
-
-                        registrationForm=new RegistrationForm(First_name,Middle_name,Last_name,Gender,Phone_no,Email_id);
-
-
-
-
+                         Email_id=email_id.getString("Email_ID");
                 }
-                    catch (JSONException e){
-                        e.printStackTrace();
-                    }
+                catch (JSONException e){
+                    e.printStackTrace();
+                }
 
-                sessionManager.createSession(email,result);
+                sessionManager.createSession(First_name,Middle_name,Last_name,Gender,Phone_no,Email_id);
                 Intent intent=new Intent(SigninActivity.this,HomeActivity.class);
                 startActivity(intent);
                 finish();
