@@ -173,13 +173,15 @@ public class SignupActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String result) {
-            if(result.equals("Email ID already Exists")) {
+            String result1="Email ID already Exists";
+            String result2="Registered Successfully";
+            if(result.equals(result1)) {
                 Toast.makeText(getApplicationContext(),result, Toast.LENGTH_LONG).show();
                 Intent intent=new Intent(SignupActivity.this,SigninActivity.class);
                 startActivity(intent);
                 finish();
             }
-            else if(result.equals("Registered Successfully")) {
+            else if(result.equals(result2)) {
                 Toast.makeText(getApplicationContext(),result, Toast.LENGTH_LONG).show();
                 Toast.makeText(getApplicationContext(),"Please Login to continue!", Toast.LENGTH_LONG).show();
                 Intent intent=new Intent(SignupActivity.this,SigninActivity.class);

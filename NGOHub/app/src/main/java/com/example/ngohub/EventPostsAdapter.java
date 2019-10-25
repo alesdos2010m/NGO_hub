@@ -8,6 +8,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.core.EventRegistration;
 
 import java.util.List;
 
@@ -29,6 +31,12 @@ public class EventPostsAdapter extends RecyclerView.Adapter<EventPostsAdapter.Po
     public PostsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(mctx);
         View view = inflater.inflate(R.layout.event_posts_list_view_layout,parent, false);
+        //Register Textview should be invisible to Vo/Ngo
+        if(FirebaseAuth.getInstance().getCurrentUser()!=null)
+        {
+            TextView EventRegistration =view.findViewById(R.id.event_register);
+            EventRegistration.setVisibility(View.GONE);
+        }
         return new PostsViewHolder(view);
     }
     @Override

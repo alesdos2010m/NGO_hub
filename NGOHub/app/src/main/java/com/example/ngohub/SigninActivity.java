@@ -159,14 +159,15 @@ public class SigninActivity extends AppCompatActivity {
 
         protected void onPostExecute(String result){
 
-
-            if(result.equals("Sorry,the Email ID does not exist,Please Register Yourself.")) {
+            String result1="Sorry,the Email ID does not exist,Please Register Yourself.";
+            String result2="Invalid Email id or password,Please try again";
+            if(result.equals(result1)) {
                 Toast.makeText(getApplicationContext(),result, Toast.LENGTH_LONG).show();
                 Intent intent=new Intent(SigninActivity.this,MainActivity.class);
                 startActivity(intent);
                 finish();
             }
-            else if(result.equals("Invalid Email id or password,Please try again")) {
+            else if(result.equals(result2)) {
                 Toast.makeText(getApplicationContext(),result, Toast.LENGTH_LONG).show();
                 Intent intent=new Intent(SigninActivity.this,SigninActivity.class);
                 startActivity(intent);
@@ -185,19 +186,19 @@ public class SigninActivity extends AppCompatActivity {
                         JSONObject first_name = array.getJSONObject(0);
                          First_name=first_name.getString("First_name");
 
-                        JSONObject middle_name = array.getJSONObject(1);
+                        JSONObject middle_name = array.getJSONObject(0);
                          Middle_name=middle_name.getString("Middle_name");
 
-                        JSONObject last_name = array.getJSONObject(2);
+                        JSONObject last_name = array.getJSONObject(0);
                          Last_name=last_name.getString("Last_name");
 
-                        JSONObject gender = array.getJSONObject(3);
+                        JSONObject gender = array.getJSONObject(0);
                          Gender=gender.getString("Gender");
 
-                        JSONObject contact_no  = array.getJSONObject(4);
+                        JSONObject contact_no  = array.getJSONObject(0);
                          Phone_no=contact_no.getString("Phone_no");
 
-                        JSONObject email_id = array.getJSONObject(5);
+                        JSONObject email_id = array.getJSONObject(0);
                          Email_id=email_id.getString("Email_ID");
                 }
                 catch (JSONException e){

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -16,6 +17,7 @@ import java.util.HashMap;
 
 //**************************************
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -26,6 +28,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -41,7 +44,7 @@ import java.util.zip.Inflater;
 public class HomeActivity extends AppCompatActivity {
     TextView EventRegistration;
     SessionManager sessionManager; //For Maintaining Sessions for Volunteer
-    TextView loggedin_user;
+    TextView loggedin_user,loggedin_user_email;
     EventRegister eventRegister;
 
     //**********************************************************
@@ -58,7 +61,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private FirebaseAuth mauth;
     String current_Post_UUID;
-    public String NAME;
+    public String NAME,Email_NGO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +69,9 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         NavigationView navigationView=(NavigationView) findViewById(R.id.navigation);
         View headerview = navigationView.getHeaderView(0);
+
         loggedin_user=(TextView)headerview.findViewById(R.id.loggedin_user);
+        loggedin_user_email=(TextView)headerview.findViewById(R.id.email_id_loggedin);
 
         NgoInformation ngo=new NgoInformation();
         sessionManager = new SessionManager(this); //Volunteer
@@ -84,15 +89,19 @@ public class HomeActivity extends AppCompatActivity {
         {
             if(sessionManager.isLoggin())
             {
-                loggedin_user.setText(f_name);
+                loggedin_user.setText(" "+ f_name + " !");
+                loggedin_user_email.setText(email);
             }
             else
             {
-                loggedin_user.setText("There!");
+                loggedin_user.setText(" There !");
+                loggedin_user_email.setText("Please Login");
             }
 
         }
-        else if(mauth.getCurrentUser()!=null)
+
+        //Commented code gives the logic of data fetched from firebase (But it is giving error NullPointerException)
+    /*  else if(mauth.getCurrentUser()!=null)
         {
             String current_NGO_UUID = mauth.getCurrentUser().getUid();
             if (FirebaseDatabase.getInstance().getReference("NgoInformation").child(current_NGO_UUID) != null) {
@@ -110,24 +119,15 @@ public class HomeActivity extends AppCompatActivity {
                 });
             }
             loggedin_user.setText(NAME);
+            loggedin_user_email.setText(Email_NGO);
         }
-
-        LayoutInflater inflater =(LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.event_posts_list_view_layout, null);
-        EventRegistration = view.findViewById(R.id.event_register);
-
+*/
         eventRegister= new EventRegister(f_name,m_name,l_name,gender,phone_no,email);
-
-        if(mauth.getCurrentUser()!=null)
-        {
-            EventRegistration.setVisibility(EventRegistration.GONE);
-        }
         //******************************************************
         //new code for recycler view and other views starts here
         recyclerView_Posts = findViewById(R.id.recyclerView_posts);
         recyclerView_Posts.setHasFixedSize(true);
         eventPostsList = new ArrayList<>();
-
         layoutManager = new LinearLayoutManager(this);
         recyclerView_Posts.setLayoutManager(layoutManager);
         current_Post_UUID = "TEMPORARY";
@@ -195,9 +195,7 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         }
-
     }
-
     private void temp()
     {
         String UserRegitered_UUID = UUID.randomUUID().toString();
