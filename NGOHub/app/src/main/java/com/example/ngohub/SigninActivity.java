@@ -56,10 +56,13 @@ public class SigninActivity extends AppCompatActivity {
         loginPrefsEditor = loginPreferences.edit();
 
         saveLogin = loginPreferences.getBoolean("saveLogin", false);
-        if (saveLogin == true) {
+        if (saveLogin==true) {
             edit_email_id.setText(loginPreferences.getString("email_id", ""));
-            edit_password.setText(loginPreferences.getString("password", ""));
             remember_me.setChecked(true);
+        }
+        else if (saveLogin==false) {
+            edit_email_id.setText(loginPreferences.getString(null,""));
+            remember_me.setChecked(false);
         }
     }
     //Not Registered? Register.
@@ -78,7 +81,11 @@ public class SigninActivity extends AppCompatActivity {
         if (remember_me.isChecked()) {
             loginPrefsEditor.putBoolean("saveLogin", true);
             loginPrefsEditor.putString("email_id", email_id);
-            loginPrefsEditor.putString("password", password);
+            loginPrefsEditor.apply();
+        }
+        else if(remember_me.isChecked()==false) {
+            loginPrefsEditor.putBoolean("saveLogin", false);
+            loginPrefsEditor.putString("email_id", null);
             loginPrefsEditor.apply();
         }
 

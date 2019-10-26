@@ -4,10 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -26,6 +28,10 @@ public class NGOSigninActivity extends AppCompatActivity {
     private ProgressBar progressBar;
     private Button btnSignin;
     private TextView text_register_ngo;
+    SharedPreferences loginPreferences;
+    SharedPreferences.Editor loginPrefsEditor;
+    Boolean saveLogin;
+    CheckBox remember_me;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +49,19 @@ public class NGOSigninActivity extends AppCompatActivity {
         inputPassword = (EditText) findViewById(R.id.password_input_ngo_signin);
         btnSignin = (Button) findViewById(R.id.app_ngo_signin_btn);
         text_register_ngo = (TextView) findViewById(R.id.ngo_Register);
+        remember_me=(CheckBox)findViewById(R.id.checkbox_input_rememberMe_ngo_signin);
+        loginPreferences = getSharedPreferences("loginPrefs", MODE_PRIVATE);
+        loginPrefsEditor = loginPreferences.edit();
+
+        saveLogin = loginPreferences.getBoolean("saveLogin", false);
+        if (saveLogin==true) {
+            inputEmail.setText(loginPreferences.getString("email_id", ""));
+            remember_me.setChecked(true);
+        }
+        else if (saveLogin==false) {
+            inputEmail.setText(loginPreferences.getString(null,""));
+            remember_me.setChecked(false);
+        }
 
         //Get Firebase auth instance
         auth = FirebaseAuth.getInstance();
@@ -61,6 +80,17 @@ public class NGOSigninActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String email = inputEmail.getText().toString();
                 final String password = inputPassword.getText().toString();
+
+                if (remember_me.isChecked()) {
+                    loginPrefsEditor.putBoolean("saveLogin", true);
+                    loginPrefsEditor.putString("email_id", email);
+                    loginPrefsEditor.apply();
+                }
+                else if(remember_me.isChecked()==false) {
+                    loginPrefsEditor.putBoolean("saveLogin", false);
+                    loginPrefsEditor.putString("email_id", null);
+                    loginPrefsEditor.apply();
+                }
 
                 if (TextUtils.isEmpty(email)) {
                     Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
