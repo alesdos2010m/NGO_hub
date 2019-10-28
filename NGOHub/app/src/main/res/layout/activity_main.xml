@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:fillViewport="true"
+    android:scrollbars="none"
+    >
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@color/primaryDarkColor"
+    >
+
+    <TextView
+        android:id="@+id/app_Quote1"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="140dp"
+        android:layout_centerHorizontal="true"
+
+        android:text="MAKE A DIFFERENCE"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold|italic"
+        />
+
+    <TextView
+        android:id="@+id/app_Quote2"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/app_Quote1"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:text="BE A CHANGE"
+        android:textAlignment="center"
+        android:textColor="@color/primaryTextColor"
+        android:textSize="30sp"
+        android:textStyle="bold|italic"
+        />
+
+    <Button
+        android:id="@+id/signup_btn"
+        android:layout_below="@id/app_Quote2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="140dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button_signin"
+        android:text="SignUp"
+        android:textSize="20sp"
+        android:textColor="@color/primaryTextColor"
+        android:onClick="buttonClick"
+    />
+
+    <Button
+        android:id="@+id/signin_btn"
+        android:layout_below="@id/signup_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button_signin"
+        android:text="Already have an Account? Login"
+        android:textSize="18sp"
+        android:textColor="@color/primaryTextColor"
+        android:onClick="buttonClick"
+    />
+
+    <TextView
+        android:id="@+id/skip_signin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="20dp"
+        android:text="Skip"
+        android:textSize="25dp"
+        android:textColor="#FFFFFF"
+        android:onClick="buttonClick"
+
+        />
+</RelativeLayout>
+</ScrollView>
