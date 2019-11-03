@@ -14,7 +14,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context=".MainActivity"
-    android:background="@color/blue_A100"
+    android:background="@color/primaryLightColor"
     >
     <TextView
         android:id="@+id/app_Quote1"

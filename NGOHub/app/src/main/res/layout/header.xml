@@ -2,15 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/header_linear"
     android:layout_width="match_parent"
-    android:layout_height="160dp"
-    android:background="@color/colorPapayaWhip"
+    android:layout_height="wrap_content"
+    android:background="@color/secondaryDarkColor"
     android:orientation="vertical"
-    android:padding="20dp">
+    android:padding="20dp"
+    >
 
     <ImageView
         android:id="@+id/profilepic"
         android:layout_width="80dp"
-        android:layout_height="80dp" />
+        android:layout_height="80dp"
+        android:src="@drawable/user_dp"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,8 +25,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hello"
-            android:textColor="@color/secondaryDarkColor"
-            android:textSize="15sp"
+            android:textColor="@color/white"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
@@ -31,8 +34,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
-            android:textColor="@color/colorAzureBlue"
-            android:textSize="15sp"
+            android:textColor="@color/blue_grey_600"
+            android:textSize="18sp"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -41,6 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""
-        android:textColor="@color/bahama_blue_link"
-        android:textSize="15dp" />
+        android:textColor="@color/colorChocolate"
+        android:textSize="18sp"
+    />
 </LinearLayout>

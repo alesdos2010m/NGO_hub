@@ -3,20 +3,16 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     >
     <group android:checkableBehavior="single">
-    <item android:id="@+id/home"
-        android:icon="@drawable/ic_home_black_24dp"
-        android:title="Home"
-        />
     <item android:id="@+id/caption_Event_Post_NGO_Dashboard"
-        android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="Help"
+        android:icon="@drawable/ic_dashboard_24dp"
+        android:title="Profile Dashboard"
         />
     <item android:id="@+id/help"
-        android:icon="@drawable/ic_help_black_24dp"
-        android:title="Help"
+        android:icon="@drawable/ic_help_24dp"
+        android:title="@string/help"
         />
     <item android:id="@+id/button_logout"
-        android:icon="@drawable/ic_help_black_24dp"
+        android:icon="@drawable/ic_account_circle_24dp"
         android:title="Log Out"
         android:onClick="Logout_Volunteer"
         />
@@ -27,7 +23,8 @@
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_share_black_24dp"
-                android:title="Share" />
+                android:title="Share"
+                />
         </menu>
     </item>
 </menu>
