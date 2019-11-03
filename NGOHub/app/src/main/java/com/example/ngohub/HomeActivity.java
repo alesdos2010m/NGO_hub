@@ -99,29 +99,24 @@ public class HomeActivity extends AppCompatActivity {
             }
 
         }
+        //NGo name and email in header.
+        else if (mauth.getCurrentUser() != null) {
 
-        //Commented code gives the logic of data fetched from firebase (But it is giving error NullPointerException)
-    /*  else if(mauth.getCurrentUser()!=null)
-        {
-            String current_NGO_UUID = mauth.getCurrentUser().getUid();
-            if (FirebaseDatabase.getInstance().getReference("NgoInformation").child(current_NGO_UUID) != null) {
-                DatabaseReference ngo_NgoInformation_dbRef = FirebaseDatabase.getInstance().getReference("NgoInformation");
-                ngo_NgoInformation_dbRef.child(current_NGO_UUID).child("NgoInformation").addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        NAME = dataSnapshot.child("Name").getValue().toString();
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
-            }
-            loggedin_user.setText(NAME);
+            FirebaseUser user_ngo = FirebaseAuth.getInstance().getCurrentUser();
+            DatabaseReference ngo_NgoInformation_dbRef = FirebaseDatabase.getInstance().getReference("NgoInformation").child(user_ngo.getUid());
+            ngo_NgoInformation_dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    NAME = dataSnapshot.child("Name").getValue(String.class);
+                    loggedin_user.setText(" " + NAME+ "!!");
+                }
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                }
+            });
+            Email_NGO = user_ngo.getEmail();
             loggedin_user_email.setText(Email_NGO);
         }
-*/
         eventRegister= new EventRegister(f_name,m_name,l_name,gender,phone_no,email);
         //******************************************************
         //new code for recycler view and other views starts here
