@@ -12,8 +12,4 @@ public class NgoInformation {
         this.contact_no = contact_no;
         this.email_id=email_id;
     }
-
-    public String getName() {
-        return Name;
-    }
 }
