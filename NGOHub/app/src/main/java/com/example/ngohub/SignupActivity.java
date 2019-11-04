@@ -119,7 +119,7 @@ public class SignupActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... params) {
             String type=params[0];
-            String register_url="http://ioit.acm.org/NGOHub/php/register.php";
+            String register_url="https://ioit.acm.org/NGOHub/php/register.php";
             if(type.equals("register"))
             {
                 try {

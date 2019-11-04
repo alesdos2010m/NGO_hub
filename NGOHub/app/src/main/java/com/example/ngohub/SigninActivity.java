@@ -120,7 +120,7 @@ public class SigninActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... params) {
             String type=params[0];
-            String login_url="http://ioit.acm.org/NGOHub/php/login.php";
+            String login_url="https://ioit.acm.org/NGOHub/php/login.php";
             if(type.equals("signin"))
             {
                 try {

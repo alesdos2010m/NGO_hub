@@ -5,19 +5,30 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.HashMap;
 
 //**************************************
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -69,6 +80,9 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         NavigationView navigationView=(NavigationView) findViewById(R.id.navigation);
         View headerview = navigationView.getHeaderView(0);
+        Menu menu =navigationView.getMenu();
+        MenuItem item = menu.findItem(R.id.button_logout);
+        MenuItem share=menu.findItem(R.id.nav_share);
 
         loggedin_user=(TextView)headerview.findViewById(R.id.loggedin_user);
         loggedin_user_email=(TextView)headerview.findViewById(R.id.email_id_loggedin);
@@ -85,6 +99,47 @@ public class HomeActivity extends AppCompatActivity {
         String phone_no = user.get(sessionManager.PHONE_NO);
         String email=user.get(sessionManager.EMAIL_ID);
 
+        share.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+               /*ApplicationInfo api = getApplicationContext().getApplicationInfo();
+                String apkPath=api.sourceDir;
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("application/vnd.android.package-archive");
+               // intent.setPackage("com.android.bluetooth");
+                Uri uri = FileProvider.getUriForFile(this, "com.my.apps.package.files", apkPath);
+                intent.putExtra(Intent.EXTRA_STREAM, uri);
+                intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new File(apkPath)));
+                startActivity(Intent.createChooser(intent,"SHARE APP USING"));
+
+                */
+                try {
+
+                    ApplicationInfo packageinfo = getApplicationContext().getPackageManager().getApplicationInfo("com.example.ngohub", 0);
+                    File file = new File(packageinfo.publicSourceDir);
+
+                    /*ApplicationInfo api = getApplicationContext().getApplicationInfo();
+                    String apkPath=api.sourceDir;
+                    File srcFile = new File(apkPath);
+
+                     */
+
+                    Intent intent = new Intent(Intent.ACTION_SEND);
+                    intent.setType("application/vnd.android.package-archive");
+                    Uri uri = FileProvider.getUriForFile(getApplicationContext(),"com.ngohub.fileprovider", file);
+                    intent.putExtra(Intent.EXTRA_STREAM, uri);
+                   HomeActivity.this.grantUriPermission(HomeActivity.this.getPackageManager().toString(), uri, Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                    startActivity(Intent.createChooser(intent,"SHARE APP USING"));
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+
+            return true;
+            }
+        });
+
         if(mauth.getCurrentUser()==null)
         {
             if(sessionManager.isLoggin())
@@ -94,6 +149,7 @@ public class HomeActivity extends AppCompatActivity {
             }
             else
             {
+                item.setVisible(false);
                 loggedin_user.setText(" There !");
                 loggedin_user_email.setText("Please Login");
             }
