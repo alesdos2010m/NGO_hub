@@ -83,6 +83,7 @@ public class HomeActivity extends AppCompatActivity {
         Menu menu =navigationView.getMenu();
         MenuItem item = menu.findItem(R.id.button_logout);
         MenuItem share=menu.findItem(R.id.nav_share);
+        MenuItem help=menu.findItem(R.id.help);
 
         loggedin_user=(TextView)headerview.findViewById(R.id.loggedin_user);
         loggedin_user_email=(TextView)headerview.findViewById(R.id.email_id_loggedin);
@@ -99,61 +100,54 @@ public class HomeActivity extends AppCompatActivity {
         String phone_no = user.get(sessionManager.PHONE_NO);
         String email=user.get(sessionManager.EMAIL_ID);
 
+        //This below code gives logic of sharing apk file
         share.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-               /*ApplicationInfo api = getApplicationContext().getApplicationInfo();
-                String apkPath=api.sourceDir;
-                Intent intent = new Intent(Intent.ACTION_SEND);
-                intent.setType("application/vnd.android.package-archive");
-               // intent.setPackage("com.android.bluetooth");
-                Uri uri = FileProvider.getUriForFile(this, "com.my.apps.package.files", apkPath);
-                intent.putExtra(Intent.EXTRA_STREAM, uri);
-                intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new File(apkPath)));
-                startActivity(Intent.createChooser(intent,"SHARE APP USING"));
-
-                */
                 try {
 
                     ApplicationInfo packageinfo = getApplicationContext().getPackageManager().getApplicationInfo("com.example.ngohub", 0);
                     File file = new File(packageinfo.publicSourceDir);
-
-                    /*ApplicationInfo api = getApplicationContext().getApplicationInfo();
-                    String apkPath=api.sourceDir;
-                    File srcFile = new File(apkPath);
-
-                     */
-
                     Intent intent = new Intent(Intent.ACTION_SEND);
                     intent.setType("application/vnd.android.package-archive");
                     Uri uri = FileProvider.getUriForFile(getApplicationContext(),"com.ngohub.fileprovider", file);
                     intent.putExtra(Intent.EXTRA_STREAM, uri);
                    HomeActivity.this.grantUriPermission(HomeActivity.this.getPackageManager().toString(), uri, Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);
                     startActivity(Intent.createChooser(intent,"SHARE APP USING"));
-
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
-
             return true;
             }
         });
-
-        if(mauth.getCurrentUser()==null)
-        {
-            if(sessionManager.isLoggin())
-            {
-                loggedin_user.setText(" "+ f_name + " !");
-                loggedin_user_email.setText(email);
+        //This below codes is about help.
+        help.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                Intent i = new Intent(Intent.ACTION_SEND);
+                i.setType("message/rfc822");
+                i.putExtra(Intent.EXTRA_EMAIL,Email_NGO);
+                i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"ngohub@example.com"});
+                i.putExtra(Intent.EXTRA_SUBJECT, "NGOHub HelpLine");
+                i.putExtra(Intent.EXTRA_TEXT   , "");
+                try {
+                    startActivity(Intent.createChooser(i, "Send Mail Via"));
+                } catch (android.content.ActivityNotFoundException ex) {
+                    Toast.makeText(HomeActivity.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+                }
+               return true;
             }
-            else
-            {
+        });
+        if(mauth.getCurrentUser()==null) {
+            if (sessionManager.isLoggin()) {
+                loggedin_user.setText(" " + f_name + " !");
+                loggedin_user_email.setText(email);
+            } else {
+                //Set the visibility of logout as false.
                 item.setVisible(false);
                 loggedin_user.setText(" There !");
                 loggedin_user_email.setText("Please Login");
             }
-
         }
         //NGo name and email in header.
         else if (mauth.getCurrentUser() != null) {
@@ -208,7 +202,6 @@ public class HomeActivity extends AppCompatActivity {
         //******************************************************
 
     }
-
     public void Eventclick(MenuItem view) {
         Intent intent = new Intent(HomeActivity.this, NGO_DashboardActivity.class);
         startActivity(intent);
