@@ -10,6 +10,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -53,9 +54,10 @@ import java.util.zip.Inflater;
 
 //**************************************
 public class HomeActivity extends AppCompatActivity {
+    private static final String TAG = "HomePage(HomeActivity)";
     TextView EventRegistration;
     SessionManager sessionManager; //For Maintaining Sessions for Volunteer
-    TextView loggedin_user,loggedin_user_email;
+    TextView loggedin_user, loggedin_user_email;
     EventRegister eventRegister;
 
     //**********************************************************
@@ -64,11 +66,13 @@ public class HomeActivity extends AppCompatActivity {
 
     EventPostsAdapter eventPostsAdapter;
     List<NGO_EventPosts> eventPostsList;
+    ArrayList<String> eventPosts_keys;
+    int EventPosts_position = 0;
 
     //Created Firebase objects for maintaining sessions for vo/ngo
     DatabaseReference databaseReference;
-    DatabaseReference eventRegistration_dbRef;                      //FirebaseDatabase Reference declaration
-    private DatabaseReference ngo_EventPosts_dbRef;                 //FirebaseDatabase Reference declaration
+    DatabaseReference eventRegistration_dbRef;                                                      //FirebaseDatabase Reference declaration
+    private DatabaseReference ngo_EventPosts_userRegistered_UUID_List_dbRef;                        //FirebaseDatabase Reference declaration
 
     private FirebaseAuth mauth;
     String current_Post_UUID;
@@ -167,29 +171,33 @@ public class HomeActivity extends AppCompatActivity {
             Email_NGO = user_ngo.getEmail();
             loggedin_user_email.setText(Email_NGO);
         }
-        eventRegister= new EventRegister(f_name,m_name,l_name,gender,phone_no,email);
+        eventRegister = new EventRegister(f_name,m_name,l_name,gender,phone_no,email);
         //******************************************************
         //new code for recycler view and other views starts here
         recyclerView_Posts = findViewById(R.id.recyclerView_posts);
         recyclerView_Posts.setHasFixedSize(true);
         eventPostsList = new ArrayList<>();
+
         layoutManager = new LinearLayoutManager(this);
         recyclerView_Posts.setLayoutManager(layoutManager);
-        current_Post_UUID = "TEMPORARY";
+
+
         //Firebase database reference definition
-        ngo_EventPosts_dbRef = FirebaseDatabase.getInstance().getReference("NgoInformation").child(current_Post_UUID).child("User_Registered_For_Event");//database reference
         eventRegistration_dbRef = FirebaseDatabase.getInstance().getReference("EventRegister");
 
         databaseReference = FirebaseDatabase.getInstance().getReference().child("NGO_EventPosts");
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                Log.d(TAG, "Populating RecyclerView");
+                eventPosts_keys= new ArrayList<String>();
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     NGO_EventPosts ngo_eventPosts = postSnapshot.getValue(NGO_EventPosts.class);
                     eventPostsList.add(ngo_eventPosts);
+                    eventPosts_keys.add(postSnapshot.getKey());
                 }
                 //connecting adapter with RecyclerView
-                eventPostsAdapter = new EventPostsAdapter(HomeActivity.this, eventPostsList);
+                eventPostsAdapter = new EventPostsAdapter(HomeActivity.this, eventPostsList, eventPosts_keys);
                 recyclerView_Posts.setAdapter(eventPostsAdapter);
             }
 
@@ -200,8 +208,8 @@ public class HomeActivity extends AppCompatActivity {
         });
         //new code ends here
         //******************************************************
-
     }
+    //*****************onCreate ends her************************
     public void Eventclick(MenuItem view) {
         Intent intent = new Intent(HomeActivity.this, NGO_DashboardActivity.class);
         startActivity(intent);
@@ -230,7 +238,8 @@ public class HomeActivity extends AppCompatActivity {
         if(mauth.getCurrentUser()==null){
             if(sessionManager.isLoggin())
             {
-                temp();
+                EventPosts_position = 0;                     //
+                temp(EventPosts_position);                                                          //
             }
             else
             {
@@ -240,19 +249,31 @@ public class HomeActivity extends AppCompatActivity {
             }
         }
     }
-    private void temp()
+    private void temp(int EventPosts_position)
     {
+        current_Post_UUID = eventPosts_keys.get(EventPosts_position);                               //get the uuid of current EventPost that we want to register
+
+        //Firebase database reference definition
+        ngo_EventPosts_userRegistered_UUID_List_dbRef = FirebaseDatabase.getInstance()
+                .getReference("NGO_EventPosts")
+                .child(current_Post_UUID).child("User_Registered_For_Event");                       //database reference to the
+        //********************************************************OK & DONE
+
+        //setting user data in EventRegister tree and entering registered user details to database
         String UserRegitered_UUID = UUID.randomUUID().toString();
         eventRegistration_dbRef.child(UserRegitered_UUID).setValue(eventRegister);
+        //********************************************************OK & DONE
 
         //created reference to EventRegister from NGO_EventPosts
-        DatabaseReference pushedEventRegistration_UUID_dbRef = ngo_EventPosts_dbRef.push();
+        DatabaseReference pushedEventRegistration_UUID_dbRef = ngo_EventPosts_userRegistered_UUID_List_dbRef.push();
         pushedEventRegistration_UUID_dbRef.setValue(UserRegitered_UUID);
+        //********************************************************OK & DONE
 
         //created reference to NGO_EventPosts from EventRegister
-        DatabaseReference pushedEventPosts_UUID_dbRef = eventRegistration_dbRef.push();
+        DatabaseReference pushedEventPosts_UUID_dbRef = eventRegistration_dbRef.child(UserRegitered_UUID)
+                .child("EventPosts_UUID").push();
         pushedEventPosts_UUID_dbRef.setValue(current_Post_UUID);
-
+        //********************************************************OK & DONE
         Toast.makeText(HomeActivity.this, "Registered For Event Successfully...", Toast.LENGTH_LONG).show();
     }
 }

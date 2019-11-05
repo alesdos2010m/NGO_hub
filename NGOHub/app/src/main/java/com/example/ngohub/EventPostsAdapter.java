@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.core.EventRegistration;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -20,10 +21,12 @@ public class EventPostsAdapter extends RecyclerView.Adapter<EventPostsAdapter.Po
 
     private Context mctx;
     private List<NGO_EventPosts> eventPostsList;
+    private ArrayList<String> keys;
 
-    public EventPostsAdapter(Context mctx, List<NGO_EventPosts> eventPostsList) {
+    public EventPostsAdapter(Context mctx, List<NGO_EventPosts> eventPostsList, ArrayList<String> keys) {
         this.mctx = mctx;
         this.eventPostsList = eventPostsList;
+        this.keys = keys;
     }
 
     @NonNull
